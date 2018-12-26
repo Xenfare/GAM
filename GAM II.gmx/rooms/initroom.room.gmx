@@ -14,7 +14,7 @@
 had one of his labors been to
 develop a video game.
 */
-room_goto(roomI1);</code>
+room_goto(roomC3);</code>
   <enableViews>0</enableViews>
   <clearViewBackground>-1</clearViewBackground>
   <clearDisplayBuffer>-1</clearDisplayBuffer>

@@ -11,6 +11,7 @@
   <colour>8421504</colour>
   <showcolour>-1</showcolour>
   <code>obj_controller.roomString = "CLIFFSIDE";
+obj_controller.roomLevel = 0;
 obj_controller.leftroom = roomD3;
 obj_controller.rightroom = roomD5;
 obj_controller.downroom = roomE4;
@@ -105,8 +106,8 @@ obj_controller.currentArea = 0;</code>
     <instance objName="obj_wall" x="96" y="32" name="inst_5EC8D68A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_wall" x="96" y="40" name="inst_F850464F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_checkpoint" x="80" y="64" name="inst_613B0471" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_fuchsiaspinnerBig" x="8" y="32" name="inst_D11CACB7" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_fuchsiaspinnerSmall" x="40" y="16" name="inst_DF0F9AD7" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_fuchsiaspinnerBig" x="40" y="40" name="inst_D11CACB7" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_fuchsiaspinnerSmall" x="8" y="8" name="inst_DF0F9AD7" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_fuchsiaspinnerSmall" x="8" y="72" name="inst_545DCF14" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles>
@@ -174,11 +175,14 @@ obj_controller.currentArea = 0;</code>
     <tile bgName="bg_temple" x="24" y="80" w="8" h="8" xo="8" yo="8" id="10006412" name="inst_13C68875" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="bg_temple" x="32" y="80" w="8" h="8" xo="8" yo="8" id="10006413" name="inst_A67ED95B" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="bg_temple" x="40" y="80" w="8" h="8" xo="8" yo="8" id="10006414" name="inst_AC0A8846" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bg_pink" x="0" y="72" w="8" h="8" xo="8" yo="0" id="10007718" name="inst_A63849DF" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bg_pink" x="8" y="72" w="8" h="8" xo="8" yo="0" id="10007719" name="inst_30FE09B7" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="bg_pink" x="24" y="72" w="8" h="8" xo="8" yo="0" id="10007720" name="inst_6FAD2A83" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="bg_pink" x="16" y="72" w="8" h="8" xo="8" yo="0" id="10007721" name="inst_BA94EB45" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="bg_pink" x="32" y="72" w="8" h="8" xo="40" yo="8" id="10007722" name="inst_DF34818C" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bg_temple" x="104" y="48" w="8" h="8" xo="40" yo="48" id="10012026" name="inst_C5EB8A9A" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bg_temple" x="104" y="56" w="8" h="8" xo="40" yo="48" id="10012027" name="inst_CC935BF7" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bg_temple" x="104" y="64" w="8" h="8" xo="40" yo="48" id="10012028" name="inst_58C0FFC6" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bg_pink" x="0" y="72" w="8" h="8" xo="8" yo="0" id="10012284" name="inst_27FB531C" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bg_pink" x="8" y="72" w="8" h="8" xo="8" yo="0" id="10012285" name="inst_240D1305" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
   </tiles>
   <PhysicsWorld>0</PhysicsWorld>
   <PhysicsWorldTop>0</PhysicsWorldTop>

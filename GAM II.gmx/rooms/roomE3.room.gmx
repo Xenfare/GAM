@@ -8,7 +8,7 @@
   <isometric>0</isometric>
   <speed>60</speed>
   <persistent>0</persistent>
-  <colour>6888480</colour>
+  <colour>8421504</colour>
   <showcolour>-1</showcolour>
   <code>obj_controller.roomString = "RANCOROUS HEAT PIT";
 obj_controller.rightroom = roomE4;
@@ -129,6 +129,8 @@ obj_controller.currentArea = 0;</code>
     <instance objName="obj_fuchsiaspinnerBig" x="32" y="26" name="inst_63A64AFC" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_fuchsiaspinnerBig" x="96" y="56" name="inst_16E7E995" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_fuchsiaspinner" x="88" y="8" name="inst_64196851" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_lavaball" x="36" y="76" name="inst_14B440E0" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_lavaball" x="84" y="76" name="inst_35B523F8" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles>
     <tile bgName="bg_pink" x="8" y="48" w="8" h="8" xo="16" yo="0" id="10000438" name="inst_02308159" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>

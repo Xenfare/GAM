@@ -1,0 +1,1 @@
+blinkingScriptVariable = 20;

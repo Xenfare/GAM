@@ -14,7 +14,7 @@
   <HTile>0</HTile>
   <VTile>0</VTile>
   <TextureGroups>
-    <TextureGroup0>0</TextureGroup0>
+    <TextureGroup0>4</TextureGroup0>
   </TextureGroups>
   <For3D>0</For3D>
   <width>21</width>
@@ -27,5 +27,10 @@
     <frame index="4">images\spr_bozoboss_4.png</frame>
     <frame index="5">images\spr_bozoboss_5.png</frame>
     <frame index="6">images\spr_bozoboss_6.png</frame>
+    <frame index="7">images\spr_bozoboss_7.png</frame>
+    <frame index="8">images\spr_bozoboss_8.png</frame>
+    <frame index="9">images\spr_bozoboss_9.png</frame>
+    <frame index="10">images\spr_bozoboss_10.png</frame>
+    <frame index="11">images\spr_bozoboss_11.png</frame>
   </frames>
 </sprite>

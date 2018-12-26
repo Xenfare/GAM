@@ -29,6 +29,7 @@
 alarm[0] = shottime;
 alarm[1] = 10;
 alarm[9] = 30;
+miniaggro = false;
 aggro = false;
 
 yspd = 0;
@@ -220,6 +221,46 @@ alarm[0] = shottime;
     <event eventtype="3" enumb="0">
       <action>
         <libid>1</libid>
+        <id>601</id>
+        <kind>0</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>1</exetype>
+        <functionname>action_execute_script</functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>9</kind>
+            <script>scr_contactdamage</script>
+          </argument>
+          <argument>
+            <kind>0</kind>
+            <string></string>
+          </argument>
+          <argument>
+            <kind>0</kind>
+            <string></string>
+          </argument>
+          <argument>
+            <kind>0</kind>
+            <string></string>
+          </argument>
+          <argument>
+            <kind>0</kind>
+            <string></string>
+          </argument>
+          <argument>
+            <kind>0</kind>
+            <string></string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
         <id>603</id>
         <kind>7</kind>
         <userelative>0</userelative>
@@ -238,6 +279,11 @@ alarm[0] = shottime;
 {
     if (obj_player.x &gt; 36 &amp;&amp; aggro == false) 
     {
+        miniaggro = true;
+    }
+    
+    if miniaggro = true &amp;&amp; aggro = false
+    {
         y += 2;
     }
     
@@ -245,9 +291,7 @@ alarm[0] = shottime;
     {
         aggro = true;
         
-        obj_controller.bossMaxHP = 3;
-        obj_controller.bossHP = 3;
-        obj_controller.HPAnim = 0;
+        scr_setbosshp(3);
         
         obj_controller.roomString = "CAVITY OF THE AEGIS";
         for(i = 0; i &lt; 9; i++)
@@ -306,32 +350,6 @@ if (y &gt; -40)
 {
     eyeColor = c_black;
     y -= 2;
-}
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="4" ename="obj_player">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>with other
-{
-    instance_destroy();
 }
 </string>
           </argument>

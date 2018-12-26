@@ -10,7 +10,7 @@
   <persistent>0</persistent>
   <colour>8421504</colour>
   <showcolour>-1</showcolour>
-  <code>obj_controller.roomString = "CATWALK";
+  <code>obj_controller.roomString = "DEFENDERS PEAK";
 obj_controller.rightroom = roomB1;
 //obj_controller.leftroom = room1;
 obj_controller.downroom = roomC0;

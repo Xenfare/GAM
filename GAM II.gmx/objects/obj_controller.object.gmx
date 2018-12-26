@@ -33,13 +33,14 @@ var downroom;
 checkpoint = roomE0;
 currentArea = "";
 roomString = "";
+roomLevel = 0;
 screenshotNum = 0;
 screenshake = 0;
 
-roomFont = font_add_sprite(spr_roomfont, 63, true, 1);
+roomFont = font_add_sprite(spr_roomfont, 48, true, 1);
 
-scale = 3;
-window_set_size(120 * scale, 96 * scale);
+global.scale = 3;
+window_set_size(120 * global.scale, 96 * global.scale);
 
 //Player Abilities
 
@@ -47,6 +48,11 @@ playerMaxHP = 2;
 blink = true;
 doubleJump = true;
 blinkStrike = true;
+
+global.enlightenmentPot = 0;
+global.enlightenmentXp = 0;
+global.enlightenmentReq = 100;
+global.enlightenmentLevel = 0;
 
 //Boss Variables
 
@@ -59,6 +65,43 @@ HPAnim = 0;
 
 aegisDefeated = false;
 hopmongerDefeated = false;
+platformState = 0;
+mongwraithDefeated = false;
+bozoScholarDefeated = false;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="1">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>switch(currentArea)
+{
+    case 1:
+    alarm[1] = 160;
+    instance_create(0, 0, obj_cavefog);
+    with instance_create(0, 112, obj_cavefog) {direction = 90};
+    break;
+    
+    case 3:
+    alarm[1] = 25;
+    instance_create(random_range(4, 116), 0 + random_range(-8, 0), obj_templesnow);
+}
 </string>
           </argument>
         </arguments>
@@ -84,14 +127,14 @@ hopmongerDefeated = false;
             <string>//Window Scale Code
 if (keyboard_check_pressed(ord('W')))
 {
-   scale += 1;
-   window_set_size(120 * scale, 96 * scale);
+   global.scale += 1;
+   window_set_size(120 * global.scale, 96 * global.scale);
 }
 
 if (keyboard_check_pressed(ord('S')))
 {
-   scale -= 1;
-   window_set_size(120 * scale, 96 * scale);
+   global.scale -= 1;
+   window_set_size(120 * global.scale, 96 * global.scale);
 }
 
 //Wall Visibilty
@@ -173,18 +216,52 @@ if screenshake &gt; 0
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>bossHP = 0;
+            <string>if (room == room_levelup)
+{
+    levellingUp = true;
+}
+else
+{
+    levellingUp = false;
+}
+
+HPAnim = 0;
+bossHP = 0;
 bossMaxHP = 0;
+
 switch(currentArea)
 {
+    case -1:
+    background_color = make_colour_rgb(255, 255, 255);
+    break;
+    
     case 0:
     background_color = make_colour_rgb(62, 36, 87);
     break;
+    
     case 1:
-    background_color = make_colour_rgb(50, 50, 50);
+    background_color = make_colour_rgb(40, 40, 40);
+    for(i = 0; i &lt; 6; i++)
+    {
+        instance_create(0, 16 * i, obj_cavefog);
+    }
+    for(i = 0; i &lt; 8; i++)
+    {
+        with instance_create(0, 16 * i, obj_cavefog) {direction = 90};
+    }
+    alarm[1] = 160;
     break;
+    
     case 3:
     background_color = make_colour_rgb(128, 128, 128);
+    if (!instance_exists(obj_templesnow))
+    {
+        for(i = 0; i &lt; 18; i++;)
+        {
+            instance_create(random_range(4, 116), 0 + random_range(-8, 0) + (6 * i), obj_templesnow);
+        }
+        alarm[1] = 25;
+    }
 }
 //repeat(choose(3, 4)) instance_create(x, y, obj_fuchsiaspinner);
 </string>
@@ -209,18 +286,24 @@ switch(currentArea)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_rectangle_colour(0, 88 * scale, 120 * scale, 96 * scale, c_black, c_black, c_black, c_black, false)
+            <string>draw_rectangle_colour(0, 88 * global.scale, 120 * global.scale, 96 * global.scale, c_black, c_black, c_black, c_black, false)
 draw_set_font(roomFont);
 draw_set_halign(fa_center);
 draw_set_color(c_white);
 
 //if (bossHP &gt; 0)
 //{
-    draw_healthbar(2 * scale, 90 * scale, 118 * scale, 93 * scale, HPAnim * (bossPotHP / bossMaxHP), c_black, c_yellow, c_yellow, 0, false, false);
-    draw_healthbar(2 * scale, 90 * scale, 118 * scale, 93 * scale, HPAnim * (bossHP / bossMaxHP), c_black, c_red, c_red, 0, false, false);
+    draw_healthbar(2 * global.scale, 90 * global.scale, 118 * global.scale, 93 * global.scale, HPAnim * (bossPotHP / bossMaxHP), c_black, c_yellow, c_yellow, 0, false, false);
+    draw_healthbar(2 * global.scale, 90 * global.scale, 118 * global.scale, 93 * global.scale, HPAnim * (bossHP / bossMaxHP), c_black, c_red, c_red, 0, false, false);
 //}
 
-draw_text_transformed((room_width * scale) / 2, 89 * scale, roomString, scale, scale, 0);
+if (global.enlightenmentLevel &lt; roomLevel)
+{
+    roomString = "";
+    repeat(roomLevel - global.enlightenmentLevel) {roomString += "?"}
+}
+
+draw_text_transformed((room_width * global.scale) / 2, 89 * global.scale, roomString, global.scale, global.scale, 0);
 </string>
           </argument>
         </arguments>

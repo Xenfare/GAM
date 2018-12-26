@@ -25,8 +25,8 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>obj_controller.bossMaxHP = 10;
-obj_controller.bossHP = 10;
+            <string>obj_controller.bossMaxHP = 12;
+obj_controller.bossHP = 12;
 obj_controller.HPAnim = 0;
 
 image_index = 1;
@@ -40,19 +40,46 @@ xspd = 0;
 yspd = 0;
 
 count = 0;
+count2 = choose(0, 1, 2);
 trail = false;
+vibrate = 0;
 alarm[1] = 80
 attack = 1;
 invTimer = 0;
 floatIndex = 0;
+spinDir = -1;
 
 //Image Variables
 
 imageX = 0;
 imageY = 0;
+imageSubimage = 0;
 imageColor = c_white;
 imageDraw = false;
-vibrate = 0;
+imageVibrate = 0;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="1" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>instance_create(x, y, obj_bozocorpse);
 </string>
           </argument>
         </arguments>
@@ -78,13 +105,77 @@ vibrate = 0;
             <string>i = random_range(1, 16);
 if (floor(i) = 2)
 {
-    vibrate = 1;
+    imageVibrate = 1;
 }
 else
 {
-    vibrate = 0;
+    imageVibrate = 0;
 }
+
+instance_create(60, random_range(0, 88), obj_bozodiamond)
+
 alarm[9] = 8;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="4">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>alarm[1] = 80;
+attack = 1;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="3">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>image_index = 9;
+obj_controller.screenshake = 2;
+
+for(i = -6; i &lt; 6; i++)
+{
+    with instance_create(x + i * 4, y + 6, obj_particle) {direction = 90; timer = 20;}
+}
+
+for(i = 0; i &lt; 13; i++)
+{
+    instance_create(12 + i * 8, 64, obj_bozoshot)
+}
+
+alarm[1] = 80;
+attack = 1;
 </string>
           </argument>
         </arguments>
@@ -108,12 +199,15 @@ alarm[9] = 8;
           <argument>
             <kind>1</kind>
             <string>image_index = 5;
+obj_controller.screenshake = 1;
+vibrate = 2;
 for(i = 0; i &lt; 10; i++)
 {
     with instance_create(x, y, obj_particle) {direction = other.i * 36; timer = 20;}
 }
 with instance_create(x, y, obj_bozolaser) {xspd = 1;}
 with instance_create(x, y, obj_bozolaser) {xspd = -1;}
+
 alarm[1] = 80;
 attack = 1;
 </string>
@@ -140,6 +234,7 @@ attack = 1;
             <kind>1</kind>
             <string>x = imageX;
 y = imageY;
+
 imageDraw = false;
 image_index = 1;
 floatSpeed = -0.3;
@@ -159,8 +254,25 @@ else
 if (count == 3)
 {  
     count = 0;
-    alarm[2] = 120;
-    attack = 2;
+    count2++;
+    
+    if (count2 mod 3 = 0)
+    {
+        attack = 2;
+        alarm[2] = 120;
+    }
+    
+    if (count2 mod 3 = 1)
+    {
+        attack = 3;
+        alarm[3] = 120;
+    }
+    
+    if (count2 mod 3 = 2)
+    {
+        attack = 4;
+        alarm[4] = 360;
+    }
 }
 else
 {
@@ -221,6 +333,11 @@ floatSpeed += (floatDirection * 0.025);
 x += xspd;
 y += yspd;
 y += floatSpeed;
+if (vibrate &gt; 0)
+{
+    vibrate -= 0.1;
+}
+
 if invTimer &gt; 0
 {
     invTimer--;
@@ -242,9 +359,10 @@ if trail = false
 
 //Damage Code
 
-if place_meeting(x, y, obj_blinkslash) &amp;&amp; invTimer &lt; 1
+if (place_meeting(x, y, obj_blinkslash) &amp;&amp; invTimer &lt; 1)
 {
     obj_controller.bossHP --;
+    vibrate = 5;
     invTimer = 12;
 }
 
@@ -253,20 +371,17 @@ if obj_controller.bossHP &lt;= 0
     instance_destroy();
 }
 
-//Contact Damage
-
-if place_meeting(x, y, obj_player)
-{
-    with obj_player
-    {
-        script_execute(scr_playerdamaged);
-    }
-}
+scr_contactdamage();
 
 //Blink Charge attack
 
 if (attack == 1)
-{
+{   
+    imageSubimage = 0;
+    if (image_index == 9)
+    {
+        y -= floatSpeed;
+    }
     if (alarm[1] &gt; 40)
     {
         imageDraw = false;
@@ -274,15 +389,15 @@ if (attack == 1)
         imagey = y;
     }
     
-    if (alarm[1] mod 5 = 0)
+    if (alarm[1] mod 5 == 0)
     {
         imageColor = choose(c_red, c_blue, c_yellow);
     }
     
-    if (alarm[1] = 40)
+    if (alarm[1] == 40)
     {
         imageDraw = true;
-        vibrate = 2;
+        imageVibrate = 2;
         i = 0;
     
         if instance_exists(obj_player)
@@ -328,6 +443,10 @@ if (attack == 1)
             imageY = 60;
             break;
         }
+        if (count == 1) 
+        {
+            instance_create(imageX, imageY, obj_bozowave);
+        }
     }
 }
 
@@ -335,16 +454,17 @@ if (attack == 1)
 
 if (attack == 2)
 {   
+    imageSubimage = 2;
     imageX = 60;
     imageY = 44;
     
-    if (alarm[2] = 80)
+    if (alarm[2] == 80)
     {
         imageDraw = true;
-        vibrate = 3;
+        imageVibrate = 3;
     }
     
-    if (alarm[2] = 40)
+    if (alarm[2] == 40)
     {
         x = imageX;
         y = imageY;
@@ -354,6 +474,65 @@ if (attack == 2)
         floatDirection = -1;
         image_index = 3;
         xspd = 0;
+    }
+}
+
+//Rising Projectiles Attack
+
+if (attack == 3)
+{
+    imageSubimage = 4;
+    imageX = 60;
+    imageY = 64;
+    
+    if (alarm[3] == 80)
+    {
+        imageDraw = true;
+        imageVibrate = 3;
+    }
+    
+    if (alarm[3] == 40)
+    {
+        x = imageX;
+        y = imageY;
+        imageDraw = false;
+        trail = false;
+        image_index = 7;
+        xspd = 0;
+    }
+    
+    if (alarm[3] &lt;= 40)
+    {
+        y -= floatSpeed;
+    }
+}
+
+//Laser Cross Attack
+
+if (attack == 4)
+{
+    imageSubimage = 6;
+    imageX = 60;
+    imageY = 44;
+    
+    if (alarm[4] == 320)
+    {
+        imageDraw = true;
+        imageVibrate = 3;
+    }
+     
+    if (alarm[4] == 280)
+    {
+        x = -24;
+        y = -24;
+        imageDraw = false;
+        trail = false;
+        xspd = 0;
+        spinDir = choose(-1, 1)
+        {
+            with instance_create(room_width / 2, 44, obj_bozocross) {dir = other.spinDir}
+            with instance_create(room_width / 2, 44, obj_bozocross) {image_angle += 90; dir = other.spinDir}
+        }
     }
 }
 </string>
@@ -380,12 +559,12 @@ if (attack == 2)
             <kind>1</kind>
             <string>//draw_sprite_ext(spr_bozostatue, 3, imageX, imageY, image_xscale, image_yscale, image_angle, imageColor, image_alpha);
 
-draw_sprite(sprite_index, image_index + floatIndex, x, y);
+draw_sprite(sprite_index, image_index + floatIndex, x + random_range(-vibrate, vibrate), y);
 
 if (imageDraw = true)
 {
-    draw_sprite_ext(spr_bozoimage, 0, imageX + random_range(-vibrate, vibrate), imageY, 1, 1, 0, image_blend, random_range(0.5, 1));
-    draw_sprite_ext(spr_bozoimage, 1, imageX + random_range(-vibrate, vibrate), imageY, 1, 1, 0, image_blend, random_range(0.5, 1));
+    draw_sprite_ext(spr_bozoimage, imageSubimage, imageX + random_range(-imageVibrate, imageVibrate), imageY, 1, 1, 0, image_blend, random_range(0.5, 1));
+    draw_sprite_ext(spr_bozoimage, imageSubimage + 1, imageX + random_range(-imageVibrate, imageVibrate), imageY, 1, 1, 0, image_blend, random_range(0.5, 1));
 }
 </string>
           </argument>

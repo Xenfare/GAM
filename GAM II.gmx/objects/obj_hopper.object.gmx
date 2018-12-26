@@ -139,7 +139,10 @@ if yspd != 0
 
 if (x &lt;= 0) or (x &gt;= 120)
 {
-    hopDirection *= -1;
+    if (!place_meeting(x, y+1, obj_specialwall))
+    {
+        hopDirection *= -1;
+    }
 }
 
 if place_meeting(x, y, obj_blinkslash)
@@ -148,7 +151,7 @@ if place_meeting(x, y, obj_blinkslash)
     exit;
 }
 
-script_execute(scr_contactdamage);
+scr_contactdamage();
 
 image_xscale = hopDirection / 2;
 

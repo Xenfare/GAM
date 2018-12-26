@@ -6,7 +6,7 @@
   <depth>0</depth>
   <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
-  <maskName>spr_8x8mask</maskName>
+  <maskName>spr_8x6mask</maskName>
   <events>
     <event eventtype="7" enumb="7">
       <action>

@@ -6,26 +6,28 @@
   <NewExtensions/>
   <sounds name="sound"/>
   <sprites name="sprites">
-    <sprite>sprites\spr_player</sprite>
-    <sprite>sprites\spr_playerhurt</sprite>
-    <sprite>sprites\spr_playershape</sprite>
-    <sprite>sprites\spr_blinktrail</sprite>
-    <sprite>sprites\spr_blinkslash</sprite>
-    <sprite>sprites\spr_wall</sprite>
-    <sprite>sprites\spr_specialwall</sprite>
-    <sprite>sprites\spr_8x8mask</sprite>
-    <sprite>sprites\spr_roomfont</sprite>
-    <sprite>sprites\spr_checkpoint</sprite>
-    <sprite>sprites\spr_checkpoint2</sprite>
-    <sprite>sprites\spr_youdied</sprite>
-    <sprite>sprites\spr_particle</sprite>
-    <sprite>sprites\spr_shine</sprite>
-    <sprite>sprites\spr_lava1</sprite>
-    <sprite>sprites\spr_lava2</sprite>
-    <sprite>sprites\spr_lava3</sprite>
-    <sprite>sprites\spr_pinkdeath</sprite>
-    <sprite>sprites\spr_obelisk</sprite>
-    <sprite>sprites\spr_spawnblock</sprite>
+    <sprites name="general">
+      <sprite>sprites\spr_player1</sprite>
+      <sprite>sprites\spr_player2</sprite>
+      <sprite>sprites\spr_player3</sprite>
+      <sprite>sprites\spr_playerhurt</sprite>
+      <sprite>sprites\spr_playershape</sprite>
+      <sprite>sprites\spr_blinkslash</sprite>
+      <sprite>sprites\spr_blinktrail</sprite>
+      <sprite>sprites\spr_wall</sprite>
+      <sprite>sprites\spr_specialwall</sprite>
+      <sprite>sprites\spr_8x6mask</sprite>
+      <sprite>sprites\spr_hpupgrade</sprite>
+      <sprite>sprites\spr_roomfont</sprite>
+      <sprite>sprites\spr_checkpoint</sprite>
+      <sprite>sprites\spr_checkpoint2</sprite>
+      <sprite>sprites\spr_youdied</sprite>
+      <sprite>sprites\spr_transition</sprite>
+      <sprite>sprites\spr_particle</sprite>
+      <sprite>sprites\spr_blinkspike</sprite>
+      <sprite>sprites\spr_shine</sprite>
+      <sprite>sprites\spr_spawnblock</sprite>
+    </sprites>
     <sprites name="bozos">
       <sprite>sprites\spr_bozo</sprite>
       <sprite>sprites\spr_bozo2</sprite>
@@ -33,117 +35,169 @@
       <sprite>sprites\spr_blinktutorial</sprite>
       <sprite>sprites\spr_jumptutorial</sprite>
     </sprites>
-    <sprites name="bozoboss">
-      <sprite>sprites\spr_bozoboss</sprite>
-      <sprite>sprites\spr_bozostatue</sprite>
-      <sprite>sprites\spr_bozoimage</sprite>
-      <sprite>sprites\spr_bozolaser</sprite>
-    </sprites>
-    <sprites name="defender">
-      <sprite>sprites\spr_defender</sprite>
-      <sprite>sprites\spr_defsegment</sprite>
-      <sprite>sprites\spr_defshot</sprite>
-    </sprites>
-    <sprites name="aegis">
-      <sprite>sprites\spr_aegis</sprite>
-      <sprite>sprites\spr_aegiscorpse</sprite>
-      <sprite>sprites\spr_aegiseyes</sprite>
-      <sprite>sprites\spr_aegisshot</sprite>
-      <sprite>sprites\spr_aegiswallspawn</sprite>
-      <sprite>sprites\spr_aegiswall</sprite>
-    </sprites>
-    <sprites name="hopmonger">
-      <sprite>sprites\spr_hopper</sprite>
-      <sprite>sprites\spr_hoppershot</sprite>
-      <sprite>sprites\spr_hopmonger</sprite>
-      <sprite>sprites\spr_mongwall</sprite>
-      <sprite>sprites\spr_hopshot</sprite>
-    </sprites>
     <sprites name="desktop">
       <sprite>sprites\spr_desktop</sprite>
       <sprite>sprites\spr_angrywindow</sprite>
       <sprite>sprites\spr_popup</sprite>
       <sprite>sprites\spr_popup2</sprite>
     </sprites>
-    <sprites name="mongwraith">
-      <sprite>sprites\spr_mongwraith</sprite>
-      <sprite>sprites\spr_mongwraithbody</sprite>
+    <sprites name="fuchsia-west">
+      <sprite>sprites\spr_obelisk</sprite>
+      <sprite>sprites\spr_obeliskeye</sprite>
+      <sprite>sprites\spr_fuchsiaspinner</sprite>
+      <sprite>sprites\spr_fuchsiaspinnerBig</sprite>
+      <sprite>sprites\spr_fuchsiaspinnerSmall</sprite>
+      <sprite>sprites\spr_pinkdeath</sprite>
+      <sprite>sprites\spr_lavaball</sprite>
+      <sprite>sprites\spr_invisplatform</sprite>
+      <sprites name="defender">
+        <sprite>sprites\spr_defender</sprite>
+        <sprite>sprites\spr_defsegment</sprite>
+        <sprite>sprites\spr_defshot</sprite>
+      </sprites>
+      <sprites name="aegis">
+        <sprite>sprites\spr_aegis</sprite>
+        <sprite>sprites\spr_aegiscorpse</sprite>
+        <sprite>sprites\spr_aegiseyes</sprite>
+        <sprite>sprites\spr_aegisshot</sprite>
+        <sprite>sprites\spr_aegiswallspawn</sprite>
+        <sprite>sprites\spr_aegiswall</sprite>
+      </sprites>
     </sprites>
-    <sprite>sprites\spr_playerlight</sprite>
-    <sprite>sprites\spr_fuchsiaspinner</sprite>
-    <sprite>sprites\spr_fuchsiaspinnerBig</sprite>
-    <sprite>sprites\spr_fuchsiaspinnerSmall</sprite>
-    <sprite>sprites\spr_dropplatform</sprite>
-    <sprite>sprites\spr_fog1</sprite>
+    <sprites name="worn-tunnels">
+      <sprites name="hopmonger">
+        <sprite>sprites\spr_lava1</sprite>
+        <sprite>sprites\spr_lava2</sprite>
+        <sprite>sprites\spr_lava3</sprite>
+        <sprite>sprites\spr_hopper</sprite>
+        <sprite>sprites\spr_hoppershot</sprite>
+        <sprite>sprites\spr_hopmonger</sprite>
+        <sprite>sprites\spr_mongwall</sprite>
+        <sprite>sprites\spr_hopshot</sprite>
+      </sprites>
+      <sprites name="mongwraith">
+        <sprite>sprites\spr_mongwraith</sprite>
+        <sprite>sprites\spr_mongwraithbody</sprite>
+        <sprite>sprites\spr_wraithshot</sprite>
+      </sprites>
+      <sprite>sprites\spr_cavefog</sprite>
+      <sprite>sprites\spr_playerlight</sprite>
+      <sprite>sprites\spr_dropplatform</sprite>
+      <sprite>sprites\spr_droppedplatform</sprite>
+      <sprite>sprites\spr_droprope</sprite>
+      <sprite>sprites\spr_dropplatformbig</sprite>
+    </sprites>
+    <sprites name="bozoboss">
+      <sprite>sprites\spr_bozoboss</sprite>
+      <sprite>sprites\spr_bozostatue</sprite>
+      <sprite>sprites\spr_bozoimage</sprite>
+      <sprite>sprites\spr_bozolaser</sprite>
+      <sprite>sprites\spr_bozowave</sprite>
+      <sprite>sprites\spr_bozocross</sprite>
+      <sprite>sprites\spr_bozodiamond</sprite>
+    </sprites>
   </sprites>
   <backgrounds name="background">
     <background>background\bg_pink</background>
-    <background>background\bg_pinkold</background>
-    <background>background\bg_temple</background>
     <background>background\bg_cave</background>
+    <background>background\bg_temple</background>
   </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
     <script>scripts\scr_playerdamaged.gml</script>
     <script>scripts\scr_contactdamage.gml</script>
+    <script>scripts\scr_enlighten.gml</script>
+    <script>scripts\scr_damageblink.gml</script>
+    <script>scripts\scr_setbosshp.gml</script>
+    <script>scripts\scr_setplayersprite.gml</script>
   </scripts>
   <objects name="objects">
     <object>objects\obj_controller</object>
     <object>objects\obj_player</object>
     <object>objects\obj_blinkslash</object>
+    <object>objects\obj_blinkspike</object>
     <object>objects\obj_blinktrail</object>
     <object>objects\obj_wall</object>
     <object>objects\obj_specialwall</object>
     <objects name="walls">
       <object>objects\obj_obelisk</object>
+      <object>objects\obj_invisplatform</object>
     </objects>
     <object>objects\obj_checkpoint</object>
+    <object>objects\obj_hpupgrade</object>
     <object>objects\obj_shine</object>
     <object>objects\obj_youdied</object>
+    <object>objects\obj_leveler</object>
     <object>objects\obj_particle</object>
-    <object>objects\obj_dark</object>
-    <object>objects\obj_fuchsiaspinner</object>
-    <object>objects\obj_fuchsiaspinnerBig</object>
-    <object>objects\obj_fuchsiaspinnerSmall</object>
-    <object>objects\obj_pinkdeath</object>
+    <object>objects\obj_risingtext</object>
     <object>objects\obj_lava1</object>
     <object>objects\obj_lava2</object>
     <object>objects\obj_lava3</object>
+    <object>objects\obj_lavaball</object>
     <object>objects\obj_lavaparticle</object>
     <object>objects\obj_bozo</object>
     <object>objects\obj_bozo2</object>
     <object>objects\obj_bozo3</object>
-    <object>objects\obj_defender</object>
-    <object>objects\obj_defshot</object>
-    <objects name="aegis">
-      <object>objects\obj_aegis</object>
-      <object>objects\obj_aegisshot</object>
-      <object>objects\obj_aegiswall</object>
-      <object>objects\obj_aegiscorpse</object>
-      <object>objects\obj_aegisspinner</object>
+    <objects name="fuchsia-west">
+      <objects name="aegis">
+        <object>objects\obj_aegis</object>
+        <object>objects\obj_aegisshot</object>
+        <object>objects\obj_aegiswall</object>
+        <object>objects\obj_aegiscorpse</object>
+        <object>objects\obj_aegisspinner</object>
+      </objects>
+      <object>objects\obj_pinkdeath</object>
+      <object>objects\obj_fuchsiaspinner</object>
+      <object>objects\obj_fuchsiaspinnerBig</object>
+      <object>objects\obj_fuchsiaspinnerSmall</object>
+      <object>objects\obj_defender</object>
+      <object>objects\obj_defshot</object>
     </objects>
-    <objects name="hopmonger">
+    <objects name="worn-tunnels">
+      <objects name="hopmonger">
+        <object>objects\obj_hoppershot</object>
+        <object>objects\obj_hopmonger</object>
+        <object>objects\obj_hopshot</object>
+        <object>objects\obj_mongwall</object>
+        <object>objects\obj_spawnwall</object>
+        <object>objects\obj_hopmongercorpse</object>
+      </objects>
+      <objects name="mongwraith">
+        <object>objects\obj_mongwraith</object>
+        <object>objects\obj_wraithcorpse</object>
+        <object>objects\obj_wraithshot</object>
+        <object>objects\obj_wraithcover</object>
+        <object>objects\obj_wraithlava</object>
+      </objects>
       <object>objects\obj_hopper</object>
-      <object>objects\obj_hoppershot</object>
-      <object>objects\obj_hopmonger</object>
-      <object>objects\obj_hopshot</object>
-      <object>objects\obj_mongwall</object>
-      <object>objects\obj_spawnwall</object>
-      <object>objects\obj_hopmongercorpse</object>
+      <object>objects\obj_cavefog</object>
+      <object>objects\obj_dark</object>
+      <object>objects\obj_dropplatform</object>
+      <object>objects\obj_droppedplatform</object>
+      <object>objects\obj_droprope</object>
+      <object>objects\obj_droppedplatformbig</object>
+      <object>objects\obj_pipeemitter</object>
+      <object>objects\obj_pipeemitter2</object>
     </objects>
     <objects name="bozoboss">
       <object>objects\obj_bozoboss</object>
       <object>objects\obj_bozostatue</object>
       <object>objects\obj_bozoimage</object>
+      <object>objects\obj_bozocorpse</object>
+      <object>objects\obj_bozocorpseimage</object>
       <object>objects\obj_bozolaser</object>
       <object>objects\obj_laserimage</object>
-    </objects>
-    <objects name="mongwraith">
-      <object>objects\obj_mongwraith</object>
+      <object>objects\obj_bozoshot</object>
+      <object>objects\obj_bozoshotimage</object>
+      <object>objects\obj_bozowave</object>
+      <object>objects\obj_bozowaveimage</object>
+      <object>objects\obj_bozocross</object>
+      <object>objects\obj_bozocrossimage</object>
+      <object>objects\obj_templesnow</object>
+      <object>objects\obj_bozodiamond</object>
     </objects>
     <object>objects\obj_desktop</object>
     <object>objects\obj_popup</object>
-    <object>objects\obj_dropplatform</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\initroom</room>
@@ -182,6 +236,7 @@
       <room>rooms\roomF3</room>
       <room>rooms\roomF4</room>
       <room>rooms\roomF5</room>
+      <room>rooms\roomF6</room>
     </rooms>
     <rooms name="level G">
       <room>rooms\roomG0</room>
@@ -193,6 +248,7 @@
       <room>rooms\roomG6</room>
     </rooms>
     <rooms name="levelH">
+      <room>rooms\roomH0</room>
       <room>rooms\roomH2</room>
       <room>rooms\roomH3</room>
       <room>rooms\roomH4</room>
@@ -206,6 +262,13 @@
       <room>rooms\roomI3</room>
       <room>rooms\roomI4</room>
     </rooms>
+    <rooms name="levelJ">
+      <room>rooms\roomJ1</room>
+      <room>rooms\roomJ2</room>
+      <room>rooms\roomJ3</room>
+      <room>rooms\roomJ4</room>
+    </rooms>
+    <room>rooms\room_levelup</room>
     <room>rooms\UNUSED1</room>
     <room>rooms\UNUSED2</room>
   </rooms>

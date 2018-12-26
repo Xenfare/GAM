@@ -3,7 +3,7 @@
   <spriteName>spr_mongwraith</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>0</depth>
+  <depth>-4</depth>
   <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -25,11 +25,101 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>aggro = false;
-moveSpeed = 0;
+            <string>if (obj_controller.mongwraithDefeated == true)
+{
+    instance_create(40, 40, obj_spawnwall);
+    instance_create(56, 8, obj_spawnwall);
+    instance_create(72, 40, obj_spawnwall);
+    instance_destroy();
+}
+
+aggro = false;
 phase = 1;
 image_speed = 0;
 vibrate = 0;
+moveSpeed = 0;
+yspd = 0;
+drop = false;
+hurt = 0;
+
+invTimer = 0;
+
+floatSpeed = 0;
+floatDirection = -1;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="1" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>obj_controller.mongwraithDefeated = true;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="2">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>phase = 1;
+moveSpeed = 0;
+alarm[1] = 240;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="1">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if (drop == false)
+{
+    alarm[1] = 50;
+}
 </string>
           </argument>
         </arguments>
@@ -53,6 +143,8 @@ vibrate = 0;
           <argument>
             <kind>1</kind>
             <string>phase = 1;
+alarm[1] = 240;
+scr_setbosshp(6);
 </string>
           </argument>
         </arguments>
@@ -75,7 +167,33 @@ vibrate = 0;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (aggro == false &amp;&amp; obj_player.x &lt; 90)
+            <string>if (place_meeting(x, y, obj_blinkslash) &amp;&amp; invTimer &lt; 1)
+{
+    repeat(5) with instance_create(x, y, obj_particle) {image_blend = c_black}
+    with instance_create(x, y, obj_hoppershot)
+    {
+        direction = (sign(obj_player.x - x) * 90) + 90;
+    }
+    obj_controller.bossHP --;
+    if (phase == 3)
+    {
+        vibrate = 6;
+    }
+    invTimer = 12;
+    if (obj_controller.bossHP &lt;= 0 &amp;&amp; phase &gt; 0)
+    {
+        instance_destroy(obj_hoppershot);
+        instance_create(x, y, obj_wraithcorpse);
+        instance_destroy();
+    }
+}
+
+if (invTimer &gt; 0)
+{
+    invTimer--;
+}
+
+if (aggro == false &amp;&amp; obj_player.x &lt; 90)
 {
     aggro = true;
     phase = 0;
@@ -87,38 +205,273 @@ if (aggro == true)
 {
     if (phase == 0)
     {
-        if (y &lt; 16)
+        if (y &lt;= 20)
         {
             vibrate = 1;
             image_index = 1;
             obj_controller.screenshake = 1;
             y += 0.1;
-            with instance_create(x + random_range(-4, 4), y - 8, obj_lavaparticle) 
-            {direction += 180; alarm[0] = 120}
+            with instance_create(x, y - 14, obj_lavaparticle)
+            {direction += 180; alarm[0] = 180}
         }
         else
-        {
+        {   
             if (alarm[0] &lt; 0) {alarm[0] = 100; image_index = 0; vibrate = 0;}
             
             if (alarm[0] = 40)
             {
                 vibrate = 5;
+                obj_controller.screenshake = 2;
                 image_index = 1;
             }
         }
     }
     
-    if (phase = 1)
+    if (phase == 1)
     {
+        if (drop = false)
+        {
+            if floatSpeed &gt;= 0.3 {floatDirection *= -1}
+            if floatSpeed &lt;= -0.3 {floatDirection *= -1}
+            floatSpeed += (floatDirection * (0.025 *(hurt + 1)));
+            y += floatSpeed;
+    
+            image_xscale = sign(moveSpeed);
+            if (image_xscale == 0)
+            {
+                image_xscale = 1;
+            }
+            image_index = 0;
+            if (instance_exists(obj_player) &amp;&amp; abs(obj_player.x - x) &gt; 2)
+            {
+                moveSpeed += (obj_player.x - x) / 150;
+            }
+            if abs(moveSpeed) &gt; sign(moveSpeed * 0.02)
+            {
+                moveSpeed -= sign(moveSpeed) * 0.02;
+            }
+            x += moveSpeed;
+            if place_meeting(x, y, obj_wall)
+            {
+                obj_controller.screenshake = abs(floor(moveSpeed));
+                moveSpeed *= -0.6;
+                x = xprevious;
+            }
+        }
+        if ((instance_exists(obj_player) &amp;&amp; alarm[1] &lt; 60 + (100 * hurt) &amp;&amp; abs(x - obj_player.x) &lt; 3) or (drop = true))
+        {
+            drop = true;
+            dropSpeed = 0;
+            x = round(x);
+            y = round(y);
+            alarm[1] = 0;
+            moveSpeed = 0;
+            image_index = 1;
+            if (vibrate &lt; 1)
+            {
+                vibrate = 5;
+            }
+            if (vibrate &lt;= 3)
+            {
+                phase = 2;
+            }
+        }
+    }
+    
+    if (phase == 2)
+    {
+        dropSpeed += 0.15;
+        if (!place_meeting(x, y + 1, obj_wall) &amp;&amp; drop == true)
+        {
+            for(i = 0; i &lt; floor(dropSpeed); i++)
+            {
+                if !place_meeting(x, y + i, obj_wall)
+                {
+                    y += i;
+                }
+            }
+        }
+        else
+        {
+            if (drop == true)
+            {
+                drop = false;
+                vibrate = 4;
+                repeat(8) with instance_create(x + random_range(-4, 4), y + 8, obj_particle)
+                {
+                    direction = random(360);
+                    timer = 30;
+                    image_blend = c_black;
+                }
+                obj_controller.screenshake = 4;
+                instance_create(x + 4, y - 2, obj_wraithshot);
+                with instance_create(x - 4, y - 2, obj_wraithshot)
+                {
+                    image_xscale = -1;
+                }
+            }
+            if (drop = false &amp;&amp; vibrate &lt;= 1)
+            {
+                phase = 3;
+                yspd = 0;
+            }
+        }
+    }
+    
+    if (phase == 3)
+    {
+        yspd -= 0.025;
+        if (vibrate &gt; 0)
+        {
+            y += yspd / 2;
+        }
+        else
+        {
+            y += yspd;
+        }
+        
         image_index = 0;
+        if (y &lt;= 20)
+        {
+            if (obj_controller.bossHP &lt;= obj_controller.bossMaxHP / 2 &amp;&amp; hurt = 0)
+            {
+                phase = 4;
+            }
+            else
+            {
+                phase = 1;
+            }
+            
+            if (phase == 1)
+            {
+                moveSpeed = 0;
+                alarm[1] = 240;
+            }
+            else if (phase == 4)
+            {
+                moveSpeed = 0;
+                alarm[2] = 200;
+                instance_create(room_width / 2, room_height / 2, obj_wraithcover);
+                hurt = 1;
+            }
+        }
+    }
+    
+    if (phase == 4)
+    {
+        if (drop == false)
+        {
+            if floatSpeed &gt;= 0.3 {floatDirection *= -1}
+            if floatSpeed &lt;= -0.3 {floatDirection *= -1}
+            floatSpeed += (floatDirection * 0.025);
+            y += floatSpeed;
+        
+            image_xscale = sign(moveSpeed);
+            if (image_xscale == 0)
+            {
+                image_xscale = 1;
+            }
+            x += moveSpeed;
+        }
+        
+        if (alarm[2] &gt; 40)
+        {
+            with instance_create(60, -20, obj_lavaparticle) {direction += 180; alarm[0] = 180}
+            if (abs(moveSpeed) &lt; 12)
+            {
+                moveSpeed += sign(moveSpeed) / 2;
+            }
+            else if (abs(moveSpeed) &gt; 12)
+            {
+                moveSpeed = 12 * sign(moveSpeed);
+            }
+            
+            if (moveSpeed &lt; 2)
+            {
+                image_index = 0;
+            }
+            else
+            {
+                image_index = 1;
+            }
+            
+            if (moveSpeed == 0)
+            {
+                moveSpeed += 0.5;
+            }
+            
+            if place_meeting(x, y, obj_wall)
+            {
+                obj_controller.screenshake = 2;
+                vibrate = 5;
+                moveSpeed *= -0.1;
+                x = xprevious;
+            }
+        }
+        else
+        {
+            image_index = 0;
+            moveSpeed -= sign(moveSpeed) * 0.02;
+            if place_meeting(x, y, obj_wall)
+            {
+                obj_controller.screenshake = 2;
+                moveSpeed *= -0.6;
+                x = xprevious;
+            }
+        }
     }
 }
 
-if (vibrate &gt; 0)
+if invTimer &gt; 0
+{
+    image_index = 2;
+}
+
+if (vibrate &gt;= 0)
 {
     vibrate -= 0.1;
 }
 </string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>601</id>
+        <kind>0</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>1</exetype>
+        <functionname>action_execute_script</functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>9</kind>
+            <script>scr_contactdamage</script>
+          </argument>
+          <argument>
+            <kind>0</kind>
+            <string></string>
+          </argument>
+          <argument>
+            <kind>0</kind>
+            <string></string>
+          </argument>
+          <argument>
+            <kind>0</kind>
+            <string></string>
+          </argument>
+          <argument>
+            <kind>0</kind>
+            <string></string>
+          </argument>
+          <argument>
+            <kind>0</kind>
+            <string></string>
           </argument>
         </arguments>
       </action>
@@ -140,8 +493,8 @@ if (vibrate &gt; 0)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_sprite(sprite_index, image_index, x + (random_range(-vibrate, vibrate)), y,);
-draw_sprite(spr_mongwraithbody, image_index, x + (random_range(-vibrate, vibrate)), y);
+            <string>draw_sprite_ext(sprite_index, image_index, x + (random_range(-vibrate - hurt, vibrate + hurt)), y, image_xscale, image_yscale, image_angle, image_blend, image_alpha);
+draw_sprite_ext(spr_mongwraithbody, image_index, x + (random_range(-vibrate - hurt, vibrate + hurt)), y, image_xscale, image_yscale, image_angle, image_blend, image_alpha);
 </string>
           </argument>
         </arguments>

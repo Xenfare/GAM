@@ -14,7 +14,7 @@
   <HTile>0</HTile>
   <VTile>0</VTile>
   <TextureGroups>
-    <TextureGroup0>0</TextureGroup0>
+    <TextureGroup0>1</TextureGroup0>
   </TextureGroups>
   <For3D>0</For3D>
   <width>6</width>
@@ -48,5 +48,20 @@
     <frame index="25">images\spr_roomfont_25.png</frame>
     <frame index="26">images\spr_roomfont_26.png</frame>
     <frame index="27">images\spr_roomfont_27.png</frame>
+    <frame index="28">images\spr_roomfont_28.png</frame>
+    <frame index="29">images\spr_roomfont_29.png</frame>
+    <frame index="30">images\spr_roomfont_30.png</frame>
+    <frame index="31">images\spr_roomfont_31.png</frame>
+    <frame index="32">images\spr_roomfont_32.png</frame>
+    <frame index="33">images\spr_roomfont_33.png</frame>
+    <frame index="34">images\spr_roomfont_34.png</frame>
+    <frame index="35">images\spr_roomfont_35.png</frame>
+    <frame index="36">images\spr_roomfont_36.png</frame>
+    <frame index="37">images\spr_roomfont_37.png</frame>
+    <frame index="38">images\spr_roomfont_38.png</frame>
+    <frame index="39">images\spr_roomfont_39.png</frame>
+    <frame index="40">images\spr_roomfont_40.png</frame>
+    <frame index="41">images\spr_roomfont_41.png</frame>
+    <frame index="42">images\spr_roomfont_42.png</frame>
   </frames>
 </sprite>

@@ -63,11 +63,10 @@ image_speed = 0.1;
             <string>if (distance_to_object(obj_player) &lt; 2 &amp;&amp; obj_player.hp &lt; obj_controller.playerMaxHP)
 {
     obj_player.hp = obj_controller.playerMaxHP;
-    repeat(5) with instance_create(obj_player.x, obj_player.y, obj_particle)
+    scr_setplayersprite();
+    for(i = 0; i &lt; 4; i++)
     {
-        timer = 3;
-        speed = choose(2, 3);
-        direction = random(360);
+        with instance_create(x, y, obj_particle) {direction = (other.i * 90) + 45; timer = 15}
     }
 }
 
@@ -77,11 +76,9 @@ if (distance_to_object(obj_player) &lt; 2 &amp;&amp; sprite_index != spr_checkpo
     image_speed = 0.2;
     obj_controller.checkpoint = room;
     
-    repeat(5) with instance_create(x, y, obj_particle)
+    for(i = 0; i &lt; 4; i++)
     {
-        timer = 3;
-        speed = choose(2, 3);
-        direction = random(360);
+        with instance_create(x, y, obj_particle) {direction = (other.i * 90) + 45; timer = 15}
     }
 }
 
