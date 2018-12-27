@@ -124,6 +124,7 @@
       <object>objects\obj_invisplatform</object>
     </objects>
     <object>objects\obj_checkpoint</object>
+    <object>objects\obj_input</object>
     <object>objects\obj_hpupgrade</object>
     <object>objects\obj_shine</object>
     <object>objects\obj_youdied</object>
