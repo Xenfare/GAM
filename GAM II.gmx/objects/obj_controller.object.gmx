@@ -138,7 +138,7 @@ if (keyboard_check_pressed(ord('S')))
 }
 
 //Wall Visibilty
-if (keyboard_check_pressed(ord('P')))
+/*if (keyboard_check_pressed(ord('P')))
 {
     if (obj_wall.image_index = 1)
     {
@@ -149,7 +149,7 @@ if (keyboard_check_pressed(ord('P')))
         obj_wall.image_index = 1;
     }
 }
-
+*/
 //Boss Code
 
 if (bossHP != 0 or bossPotHP != 0)
@@ -227,10 +227,15 @@ else
 
 HPAnim = 0;
 bossHP = 0;
+bossPotHP = 0;
 bossMaxHP = 0;
 
 switch(currentArea)
 {
+    case -2:
+    background_color = make_colour_rgb(0, 0, 0);
+    break;
+    
     case -1:
     background_color = make_colour_rgb(255, 255, 255);
     break;
@@ -327,24 +332,27 @@ draw_text_transformed((room_width * global.scale) / 2, 89 * global.scale, roomSt
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_rectangle_colour(0, 88, 120, 96, c_black, c_black, c_black, c_black, false)
-draw_set_font(roomFont);
-draw_set_halign(fa_center);
-draw_set_color(c_white);
-
-//if (bossHP &gt; 0)
-//{
-    draw_healthbar(2, 90, 118, 93, HPAnim * (bossPotHP / bossMaxHP), c_black, c_yellow, c_yellow, 0, false, false);
-    draw_healthbar(2, 90, 118, 93, HPAnim * (bossHP / bossMaxHP), c_black, c_red, c_red, 0, false, false);
-//}
-
-if (global.enlightenmentLevel &lt; roomLevel)
+            <string>if (room != room_demoend)
 {
-    roomString = "";
-    repeat(roomLevel - global.enlightenmentLevel) {roomString += "?"}
+    draw_rectangle_colour(0, 88, 120, 96, c_black, c_black, c_black, c_black, false)
+    draw_set_font(roomFont);
+    draw_set_halign(fa_center);
+    draw_set_color(c_white);
+    
+    //if (bossHP &gt; 0)
+    //{
+        draw_healthbar(2, 90, 118, 93, HPAnim * (bossPotHP / bossMaxHP), c_black, c_yellow, c_yellow, 0, false, false);
+        draw_healthbar(2, 90, 118, 93, HPAnim * (bossHP / bossMaxHP), c_black, c_red, c_red, 0, false, false);
+    //}
+    
+    if (global.enlightenmentLevel &lt; roomLevel)
+    {
+        roomString = "";
+        repeat(roomLevel - global.enlightenmentLevel) {roomString += "?"}
+    }
+    
+    draw_text_transformed((room_width) / 2, 89, roomString, 1, 1, 0);
 }
-
-draw_text_transformed((room_width) / 2, 89, roomString, 1, 1, 0);
 </string>
           </argument>
         </arguments>

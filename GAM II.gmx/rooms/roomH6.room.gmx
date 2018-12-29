@@ -10,7 +10,7 @@
   <persistent>0</persistent>
   <colour>4210752</colour>
   <showcolour>-1</showcolour>
-  <code>obj_controller.roomString = "DOTTED HOLE";
+  <code>obj_controller.roomString = "DERELICT PASSAGE";
 obj_controller.uproom = roomG6;
 obj_controller.leftroom = roomH5;
 

@@ -10,8 +10,8 @@
   <persistent>0</persistent>
   <colour>8421504</colour>
   <showcolour>-1</showcolour>
-  <code>obj_controller.roomString = "";
-obj_controller.roomLevel = 1;
+  <code>obj_controller.roomString = "BOZOS DIAMOND";
+obj_controller.roomLevel = 2;
 obj_controller.leftroom = roomC4;
 obj_controller.downroom = roomD5;
 

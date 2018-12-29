@@ -64,7 +64,7 @@ imageVibrate = 3;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>scr_enlighten(100);
+            <string>scr_enlighten(150);
 
 obj_controller.screenshake = 5;
 

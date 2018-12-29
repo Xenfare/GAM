@@ -113,6 +113,7 @@
   </scripts>
   <objects name="objects">
     <object>objects\obj_controller</object>
+    <object>objects\obj_input</object>
     <object>objects\obj_player</object>
     <object>objects\obj_blinkslash</object>
     <object>objects\obj_blinkspike</object>
@@ -121,10 +122,10 @@
     <object>objects\obj_specialwall</object>
     <objects name="walls">
       <object>objects\obj_obelisk</object>
+      <object>objects\obj_endobelisk</object>
       <object>objects\obj_invisplatform</object>
     </objects>
     <object>objects\obj_checkpoint</object>
-    <object>objects\obj_input</object>
     <object>objects\obj_hpupgrade</object>
     <object>objects\obj_shine</object>
     <object>objects\obj_youdied</object>
@@ -197,6 +198,7 @@
       <object>objects\obj_templesnow</object>
       <object>objects\obj_bozodiamond</object>
     </objects>
+    <object>objects\obj_demoend</object>
     <object>objects\obj_desktop</object>
     <object>objects\obj_popup</object>
   </objects>
@@ -221,6 +223,7 @@
       <room>rooms\roomD3</room>
       <room>rooms\roomD4</room>
       <room>rooms\roomD5</room>
+      <room>rooms\roomD6</room>
     </rooms>
     <rooms name="level E">
       <room>rooms\roomE0</room>
@@ -270,6 +273,7 @@
       <room>rooms\roomJ4</room>
     </rooms>
     <room>rooms\room_levelup</room>
+    <room>rooms\room_demoend</room>
     <room>rooms\UNUSED1</room>
     <room>rooms\UNUSED2</room>
   </rooms>

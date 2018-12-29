@@ -79,7 +79,8 @@ imageVibrate = 0;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>instance_create(x, y, obj_bozocorpse);
+            <string>obj_controller.bozoScholarDefeated = true;
+instance_create(x, y, obj_bozocorpse);
 </string>
           </argument>
         </arguments>

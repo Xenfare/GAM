@@ -10,7 +10,7 @@
   <persistent>0</persistent>
   <colour>8421504</colour>
   <showcolour>-1</showcolour>
-  <code>obj_controller.roomString = "DEFENDERS HEAT PIT";
+  <code>obj_controller.roomString = "WAYWARD HEAT PIT";
 //obj_controller.rightroom = roomG5;
 obj_controller.leftroom = roomF5;
 obj_controller.downroom = roomG6;

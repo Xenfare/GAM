@@ -3,7 +3,7 @@
   <spriteName>spr_transition</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>-10000</depth>
+  <depth>-100000</depth>
   <persistent>-1</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -164,7 +164,8 @@ if (phase == 4)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (room == room_levelup)
+            <string>/*
+if (room == room_levelup)
 {
     draw_rectangle_colour(0, 88 * global.scale, 120 * global.scale, 96 * global.scale, c_white, c_white, c_white, c_white, false)
     draw_healthbar(20 * global.scale, 44 * global.scale, 100 * global.scale, 51 * global.scale, 100 * (global.enlightenmentXp / global.enlightenmentReq), c_gray, c_aqua, c_aqua, 0, true, false);
@@ -197,7 +198,18 @@ draw_sprite_ext(sprite_index, image_index, x * global.scale, 48 * global.scale, 
         <arguments>
           <argument>
             <kind>1</kind>
-            <string></string>
+            <string>if (room == room_levelup)
+{
+    draw_rectangle_colour(0, 88, 120, 96, c_white, c_white, c_white, c_white, false)
+    draw_healthbar(20, 44, 100, 51, 100 * (global.enlightenmentXp / global.enlightenmentReq), c_gray, c_aqua, c_aqua, 0, true, false);
+    draw_set_colour(c_white);
+    draw_text_transformed(room_width / 2, 45, "ENLIGHTENMENT", 1, 1, 0);
+    draw_set_colour(c_gray);
+    draw_text_transformed(room_width / 2, 53, "LEVEL: " + string(global.enlightenmentLevel), 1, 1, 0);
+}
+
+draw_sprite_ext(sprite_index, image_index, x , 48, image_xscale , image_yscale , image_angle, image_blend, image_alpha);
+</string>
           </argument>
         </arguments>
       </action>

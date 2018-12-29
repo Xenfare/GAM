@@ -12,8 +12,16 @@
   <showcolour>-1</showcolour>
   <code>obj_controller.roomString = "XENOTEMPLE";
 obj_controller.roomLevel = 3;
-obj_controller.leftroom = roomD5;
-obj_controller.rightroom = roomD5;
+if (obj_controller.bozoScholarDefeated == true)
+{
+    obj_controller.leftroom = roomD4;
+    obj_controller.rightroom = roomD6;
+}
+else
+{
+    obj_controller.leftroom = roomD5;
+    obj_controller.rightroom = roomD5;
+}
 
 obj_controller.currentArea = 3;</code>
   <enableViews>-1</enableViews>
