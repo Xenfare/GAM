@@ -71,6 +71,7 @@ if (obj_controller.aegisDefeated == true)
             <kind>1</kind>
             <string>if (obj_controller.aegisDefeated == false)
 {
+    scr_record_boss_win("aegis")
     instance_create(x, y, obj_aegiscorpse);
     obj_controller.aegisDefeated = true;
 }
@@ -290,6 +291,8 @@ alarm[0] = shottime;
     if (y &gt;= 24 &amp;&amp; aggro = false)
     {
         aggro = true;
+        
+        scr_record_boss_start("aegis")
         
         scr_setbosshp(3);
         

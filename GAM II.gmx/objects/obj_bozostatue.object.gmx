@@ -65,6 +65,7 @@ if (obj_player.x &gt; 60)
             <kind>1</kind>
             <string>if (effectTrigger = 1 &amp;&amp; aggro = false &amp;&amp; obj_player.x &lt; 30)
 {
+    scr_record_boss_start("bozostatue")
     image_index += 1;
     aggro = true;
     instance_create(0, 48, obj_spawnwall);

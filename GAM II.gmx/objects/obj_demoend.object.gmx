@@ -30,6 +30,7 @@ phase = 1;
 placex = 0;
 placey = 0;
 image_blend = c_black;
+scr_record_misc_event("completion", "demo")
 </string>
           </argument>
         </arguments>

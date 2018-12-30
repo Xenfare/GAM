@@ -79,7 +79,11 @@ imageVibrate = 0;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>obj_controller.bozoScholarDefeated = true;
+            <string>if !obj_controller.bozoScholarDefeated
+{
+    obj_controller.bozoScholarDefeated = true;
+    scr_record_boss_win("bozostatue")
+}
 instance_create(x, y, obj_bozocorpse);
 </string>
           </argument>
