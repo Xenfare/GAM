@@ -68,7 +68,11 @@ floatDirection = -1;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>obj_controller.mongwraithDefeated = true;
+            <string>if !obj_controller.mongwraithDefeated
+{
+    obj_controller.mongwraithDefeated = true
+    scr_record_boss_win("mongwraith")
+}
 </string>
           </argument>
         </arguments>
@@ -195,6 +199,8 @@ if (invTimer &gt; 0)
 
 if (aggro == false &amp;&amp; obj_player.x &lt; 90)
 {
+    
+    scr_record_boss_start("mongwraith")
     aggro = true;
     phase = 0;
     instance_create(112, 56, obj_spawnwall);

@@ -67,7 +67,11 @@ if (obj_controller.hopmongerDefeated == true)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>obj_controller.hopmongerDefeated = true;
+            <string>if !obj_controller.hopmongerDefeated
+{
+    obj_controller.hopmongerDefeated = true
+    scr_record_boss_win("hopmonger")
+}
 </string>
           </argument>
         </arguments>
@@ -193,6 +197,7 @@ else
             <kind>1</kind>
             <string>if (aggro = false &amp;&amp; obj_player.x &lt; 90)
 {
+    scr_record_boss_start("hopmonger")
     aggro = true;
     scr_setbosshp(1);
     instance_create(8, 0, obj_spawnwall);

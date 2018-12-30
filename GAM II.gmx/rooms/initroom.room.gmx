@@ -14,6 +14,26 @@
 had one of his labors been to
 develop a video game.
 */
+
+//setup analytics
+global.statistics = json_decode(
+'
+{
+    "deaths": 0,
+    "timeline": [],
+}
+'
+)
+global.progression_start = 0
+global.progression_current = ""
+
+ga_setEnabledInfoLog(true);
+
+ga_configureBuild("0.0.1");
+
+native_ga_initialize("921de0fabe54377e48e963776993080f", "519b83a97d9bc74d67b5fe6f5f7e8f9d8c45ba0d");
+
+
 room_goto(roomD4);</code>
   <enableViews>0</enableViews>
   <clearViewBackground>-1</clearViewBackground>
