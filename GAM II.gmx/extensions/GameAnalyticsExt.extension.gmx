@@ -1238,7 +1238,7 @@
           <kind>12</kind>
           <help>onStop()</help>
           <returnType>2</returnType>
-          <argCount>0</argCount>
+          <argCount>-1</argCount>
           <args/>
         </function>
         <function>

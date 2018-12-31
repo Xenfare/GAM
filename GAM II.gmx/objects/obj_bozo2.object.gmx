@@ -103,6 +103,7 @@ alarm[1] = 8;
         drawZ = 1;
         dist = 24;
         obj_controller.doubleJump = true;
+        scr_record_misc_event("upgrade", "doubleJump")
         with instance_create(obj_player.x, obj_player.y, obj_shine) 
         {
             image_blend = c_red;

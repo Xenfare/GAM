@@ -55,10 +55,12 @@ if (obj_controller.playerMaxHP &gt; 2)
             <kind>1</kind>
             <string>if (distance_to_object(obj_player) &lt; 2)
 {
+    
     instance_destroy();
     instance_create(obj_player.x, obj_player.y, obj_shine);
     obj_controller.playerMaxHP++;
     obj_player.hp = obj_controller.playerMaxHP;
+    scr_record_misc_event("upgrade", "health1")
     with instance_create(x, y, obj_risingtext) {phrase = "HP UP"}
     scr_setplayersprite();
 }

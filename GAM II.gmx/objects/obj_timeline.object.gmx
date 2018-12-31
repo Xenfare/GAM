@@ -29,11 +29,17 @@
 timeline = global.statistics[?"timeline"]
 time = ds_map_find_value(timeline[|ds_list_size(timeline) - 1],"time")
 time_str = scr_time_to_string(time)
-timeline_sz = ds_list_size(timeline)
+timeline_sz = ds_list_size(timeline) - 1
 line_width = room_width - 20
-death_str = "DEATHS " + string(ds_map_find_value(global.statistics[?"death"],"total"))
-deadliest_room_str =  ds_map_find_value(global.statistics[?"death"],"deadliest room")
+death_str = "DEATHS: " + string(ds_map_find_value(global.statistics[?"death"],"total"))
+deadliest_room_str = ds_map_find_value(global.statistics[?"death"],"deadliest room")
 vertical_padding = 10
+timeline_width = 0
+timeline_max_width = room_width - 20
+timeline_increment = timeline_max_width / (room_speed * 5)
+time_between_lines = room_speed
+time_passed = 0
+show_line = 0
 </string>
           </argument>
         </arguments>
@@ -56,23 +62,101 @@ vertical_padding = 10
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_set_halign(fa_center)
+            <string>if show_line = 0
+{
+    if ++time_passed &lt; time_between_lines
+        exit
+    else if time_passed = time_between_lines
+    {
+        obj_controller.screenshake = 1
+        time_between_lines += room_speed
+        show_line = 1
+    }
+}
+    
+    
+draw_set_halign(fa_center)
 var yy = vertical_padding
 draw_text(x,yy,death_str)
+
+if show_line = 1
+{
+    if ++time_passed &lt; time_between_lines
+        exit
+    else if time_passed = time_between_lines
+    {
+        obj_controller.screenshake = 1
+        time_between_lines += room_speed * 6
+        show_line = 2
+    }
+}
+    
 yy += vertical_padding
-draw_text(x,yy,"TIME " + string(time_str))
+draw_text(x,yy,"TIME: " + string(time_str))
 yy += vertical_padding
-draw_line(10,yy,room_width - 10,50)
+timeline_width = min(timeline_width + timeline_increment, timeline_max_width)
+draw_line_width(10,yy,10 + timeline_width,yy,4)
 for(var i = 0; i &lt; timeline_sz; ++i)
 {
     var event = timeline[|i]
-    var xpos = (event[?"time"] / time) * line_width + 10
-    draw_line(xpos,yy - 5,xpos,yy + 5)
+    var xpos = (event[?"time"] / time) * line_width
+    if timeline_width &lt; xpos
+        break
+    xpos += 10
+    switch(event[?"source"])
+    {
+        case "aegis":
+            draw_rectangle_colour(xpos, yy, xpos + 1, yy + 1,c_fuchsia,c_fuchsia,c_fuchsia,c_fuchsia,false)
+        break;
+        case "hopmonger":
+            var col = make_color_rgb(0,162,232)
+            draw_rectangle_colour(xpos, yy, xpos + 1, yy + 1,col,col,col,col,false)
+        break;
+        case "mongwraith":
+            draw_rectangle_colour(xpos, yy, xpos + 1, yy + 1,c_black,c_black,c_black,c_black,false)
+        break;
+        case "bozostatue":
+            draw_rectangle_colour(xpos, yy - 1, xpos + 1, yy,c_red,c_red,c_red,c_red,false)
+            draw_rectangle_colour(xpos - 1, yy + 1, xpos, yy + 2,c_blue,c_blue,c_blue,c_blue,false)
+            draw_rectangle_colour(xpos + 1, yy + 1, xpos + 2, yy + 2,c_yellow,c_yellow,c_yellow,c_yellow,false)
+        break;
+        default: 
+            draw_line(xpos,yy - 5,xpos,yy + 5)
+    }
 }
+
+if show_line = 2
+{
+    if ++time_passed &lt; time_between_lines
+        exit
+    else if time_passed = time_between_lines
+    {
+        obj_controller.screenshake = 1
+        time_between_lines += room_speed
+        show_line = 3
+    }
+}
+    
 yy += vertical_padding
 draw_text(x,yy,"DEADLIEST ROOM")
 yy += vertical_padding
 draw_text(x,yy,deadliest_room_str)
+
+if show_line = 3
+{
+    if ++time_passed &lt; time_between_lines
+        exit
+    else if time_passed = time_between_lines
+    {
+        obj_controller.screenshake = 1
+        time_between_lines += room_speed
+        show_line = 4
+    }
+}
+
+yy += vertical_padding
+draw_text(x,yy,"THANKS FOR PLAYING")
+
 
 </string>
           </argument>

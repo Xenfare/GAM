@@ -137,6 +137,7 @@ alarm[0] = 15;
         drawZ = 1;
         dist = 24;
         obj_controller.blinkStrike = true;
+        scr_record_misc_event("upgrade", "blinkStrike")
         with instance_create(obj_player.x, obj_player.y, obj_shine)
         {
             image_xscale = 2;
