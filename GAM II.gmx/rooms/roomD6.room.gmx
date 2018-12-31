@@ -11,7 +11,7 @@
   <colour>8421504</colour>
   <showcolour>-1</showcolour>
   <code>obj_controller.roomString = "EPHEMERAL EDGE";
-obj_controller.roomLevel = 10;
+obj_controller.roomLevel = 3;
 
 obj_controller.leftroom = roomD5;</code>
   <enableViews>-1</enableViews>

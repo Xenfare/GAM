@@ -25,7 +25,8 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>y = 48;
+            <string>alarm[0] = 200;
+y = 48;
 phase = 1;
 placex = 0;
 placey = 0;
@@ -53,8 +54,7 @@ scr_record_misc_event("completion", "demo")
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>phase++;
-</string>
+            <string></string>
           </argument>
         </arguments>
       </action>
@@ -84,7 +84,7 @@ scr_record_misc_event("completion", "demo")
 if (phase = 1)
 {
     image_xscale += 1;
-
+    
     if (image_xscale &gt; 100)
     {
         placex = obj_player.x;
@@ -92,6 +92,11 @@ if (phase = 1)
         room_goto(room_demoend);
         instance_deactivate_object(obj_player);
         phase++;
+    }
+    
+    if (alarm[0] mod 4 == 0)
+    {
+        obj_controller.roomLevel++;
     }
 }
 

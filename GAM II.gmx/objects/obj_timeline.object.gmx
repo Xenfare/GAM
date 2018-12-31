@@ -37,7 +37,7 @@ vertical_padding = 10;
 timeline_width = 0;
 timeline_max_width = room_width - 20;
 timeline_increment = timeline_max_width / (room_speed * 5);
-time_between_lines = room_speed;
+time_between_lines = room_speed * 2;
 time_passed = 0;
 show_line = 0;
 </string>
