@@ -345,13 +345,14 @@ draw_text_transformed((room_width * global.scale) / 2, 89 * global.scale, roomSt
         draw_healthbar(2, 90, 118, 93, HPAnim * (bossHP / bossMaxHP), c_black, c_red, c_red, 0, false, false);
     //}
     
+    var drawnRoomString = roomString
     if (global.enlightenmentLevel &lt; roomLevel)
     {
-        roomString = "";
-        repeat(roomLevel - global.enlightenmentLevel) {roomString += "?"}
+        drawnRoomString = "";
+        repeat(roomLevel - global.enlightenmentLevel) {drawnRoomString += "?"}
     }
     
-    draw_text_transformed((room_width) / 2, 89, roomString, 1, 1, 0);
+    draw_text_transformed((room_width) / 2, 89, drawnRoomString, 1, 1, 0);
 }
 </string>
           </argument>
