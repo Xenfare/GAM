@@ -5,10 +5,18 @@ var minutes = (time mod 3600) div 60
 var seconds = time mod 60
 var str = "" 
 if hours > 0
-    str = string(hours) + " H "
+    str = string(hours) + ":"
 if minutes > 0
-    str = str + string(minutes) + " M " 
+{
+    if minutes < 10
+        str = str + "0"
+    str = str + string(minutes) + ":" 
+}
 if seconds > 0
-    str = str + string(seconds) + " S "
+{
+    if seconds < 10
+        str = str + "0"
+    str = str + string(seconds)
+}
 return str
 
