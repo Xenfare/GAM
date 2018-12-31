@@ -14,6 +14,7 @@
 obj_controller.leftroom = roomC3;
 obj_controller.downroom = roomD4;
 obj_controller.rightroom = roomC5;
+obj_controller.roomLevel = 0;
 
 obj_controller.currentArea = 0;</code>
   <enableViews>0</enableViews>

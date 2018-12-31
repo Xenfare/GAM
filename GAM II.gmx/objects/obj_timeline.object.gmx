@@ -25,21 +25,21 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>x = room_width * .5
-timeline = global.statistics[?"timeline"]
-time = ds_map_find_value(timeline[|ds_list_size(timeline) - 1],"time")
-time_str = scr_time_to_string(time)
-timeline_sz = ds_list_size(timeline) - 1
-line_width = room_width - 20
-death_str = "DEATHS: " + string(ds_map_find_value(global.statistics[?"death"],"total"))
-deadliest_room_str = ds_map_find_value(global.statistics[?"death"],"deadliest room")
-vertical_padding = 10
-timeline_width = 0
-timeline_max_width = room_width - 20
-timeline_increment = timeline_max_width / (room_speed * 5)
-time_between_lines = room_speed
-time_passed = 0
-show_line = 0
+            <string>x = room_width * .5;
+timeline = global.statistics[?"timeline"];
+time = ds_map_find_value(timeline[|ds_list_size(timeline) - 1],"time");
+time_str = scr_time_to_string(time);
+timeline_sz = ds_list_size(timeline);
+line_width = room_width - 20;
+death_str = "DEATHS: " + string(ds_map_find_value(global.statistics[?"death"],"total"));
+deadliest_room_str = ds_map_find_value(global.statistics[?"death"],"deadliest room");
+vertical_padding = 10;
+timeline_width = 0;
+timeline_max_width = room_width - 20;
+timeline_increment = timeline_max_width / (room_speed * 5);
+time_between_lines = room_speed;
+time_passed = 0;
+show_line = 0;
 </string>
           </argument>
         </arguments>
@@ -155,7 +155,7 @@ if show_line = 3
 }
 
 yy += vertical_padding
-draw_text(x,yy,"THANKS FOR PLAYING")
+draw_text(x,yy,"THANKS FOR PLAYING!")
 
 
 </string>

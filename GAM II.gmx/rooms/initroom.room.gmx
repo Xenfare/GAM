@@ -38,7 +38,7 @@ ga_configureBuild("0.0.1");
 ga_initialize("921de0fabe54377e48e963776993080f", "519b83a97d9bc74d67b5fe6f5f7e8f9d8c45ba0d");
 
 
-room_goto(roomD4);</code>
+room_goto(roomE0);</code>
   <enableViews>0</enableViews>
   <clearViewBackground>-1</clearViewBackground>
   <clearDisplayBuffer>-1</clearDisplayBuffer>

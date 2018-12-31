@@ -37,7 +37,7 @@ roomLevel = 0;
 screenshotNum = 0;
 screenshake = 0;
 
-roomFont = font_add_sprite(spr_roomfont, 48, true, 1);
+roomFont = font_add_sprite(spr_roomfont, 33, true, 1);
 
 global.scale = 3;
 window_set_size(120 * global.scale, 96 * global.scale);
@@ -357,7 +357,7 @@ draw_text_transformed((room_width * global.scale) / 2, 89 * global.scale, roomSt
             <kind>1</kind>
             <string>if (room != room_demoend)
 {
-    draw_rectangle_colour(0, 88, 120, 96, c_black, c_black, c_black, c_black, false)
+    draw_rectangle_colour(view_xview, 88, view_xview + 120, 96, c_black, c_black, c_black, c_black, false)
     draw_set_font(roomFont);
     draw_set_halign(fa_center);
     draw_set_color(c_white);
@@ -375,7 +375,7 @@ draw_text_transformed((room_width * global.scale) / 2, 89 * global.scale, roomSt
         repeat(roomLevel - global.enlightenmentLevel) {drawnRoomString += "?"}
     }
     
-    draw_text_transformed((room_width) / 2, 89, drawnRoomString, 1, 1, 0);
+    draw_text_transformed((room_width) / 2 + view_xview, 89, drawnRoomString, 1, 1, 0);
 }
 </string>
           </argument>
