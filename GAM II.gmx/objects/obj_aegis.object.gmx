@@ -32,6 +32,7 @@ alarm[9] = 30;
 miniaggro = false;
 aggro = false;
 
+image_speed = 0.25;
 yspd = 0;
 dir = -1;
 ogx = x;

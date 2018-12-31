@@ -259,7 +259,6 @@ obj_controller.currentArea = 3;</code>
     <tile bgName="bg_temple" x="48" y="56" w="8" h="8" xo="48" yo="24" id="10012191" name="inst_A6C4BDE8" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="bg_temple" x="48" y="64" w="8" h="8" xo="48" yo="24" id="10012192" name="inst_AF9F75A9" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="bg_temple" x="48" y="32" w="8" h="8" xo="48" yo="24" id="10012193" name="inst_5EB2CB7E" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bg_temple" x="48" y="72" w="8" h="8" xo="48" yo="32" id="10012194" name="inst_CA91E9C4" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="bg_temple" x="96" y="24" w="8" h="8" xo="48" yo="16" id="10012195" name="inst_1B7F1F88" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="bg_temple" x="96" y="40" w="8" h="8" xo="48" yo="24" id="10012196" name="inst_748117BE" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="bg_temple" x="96" y="48" w="8" h="8" xo="48" yo="24" id="10012197" name="inst_5B48810F" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
@@ -273,7 +272,6 @@ obj_controller.currentArea = 3;</code>
     <tile bgName="bg_temple" x="72" y="56" w="8" h="8" xo="24" yo="24" id="10012206" name="inst_79E047EF" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="bg_temple" x="72" y="64" w="8" h="8" xo="24" yo="24" id="10012207" name="inst_0022994F" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="bg_temple" x="72" y="32" w="8" h="8" xo="24" yo="24" id="10012208" name="inst_72412612" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bg_temple" x="72" y="72" w="8" h="8" xo="24" yo="32" id="10012209" name="inst_A8ACD440" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="bg_temple" x="80" y="24" w="8" h="8" xo="32" yo="16" id="10012210" name="inst_8D5A0EB1" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="bg_temple" x="80" y="40" w="8" h="8" xo="32" yo="24" id="10012217" name="inst_D9AE6CD6" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="bg_temple" x="80" y="48" w="8" h="8" xo="32" yo="24" id="10012218" name="inst_C212F1F3" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
@@ -290,6 +288,10 @@ obj_controller.currentArea = 3;</code>
     <tile bgName="bg_temple" x="88" y="72" w="8" h="8" xo="40" yo="32" id="10012233" name="inst_F2E0B573" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="bg_temple" x="96" y="16" w="8" h="8" xo="8" yo="16" id="10012240" name="inst_38F96ADD" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="bg_temple" x="96" y="80" w="8" h="8" xo="8" yo="0" id="10012241" name="inst_4120C0E8" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bg_temple" x="48" y="72" w="8" h="8" xo="0" yo="48" id="10012406" name="inst_65331110" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bg_temple" x="56" y="72" w="8" h="8" xo="8" yo="48" id="10012407" name="inst_9BE709DE" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bg_temple" x="64" y="72" w="8" h="8" xo="0" yo="56" id="10012408" name="inst_C7524DC5" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bg_temple" x="72" y="72" w="8" h="8" xo="8" yo="56" id="10012409" name="inst_125E1A9B" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
   </tiles>
   <PhysicsWorld>0</PhysicsWorld>
   <PhysicsWorldTop>0</PhysicsWorldTop>
