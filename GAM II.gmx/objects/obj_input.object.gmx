@@ -45,6 +45,14 @@ for(var i = 0; i &lt; INPUT.BLINK + 1; ++i)
     keys[i] = 0
 }
 
+keybinds[INPUT.LEFT] = vk_left
+keybinds[INPUT.RIGHT] = vk_right
+keybinds[INPUT.DOWN] = vk_down
+keybinds[INPUT.JUMP] = vk_up
+keybinds[INPUT.BLINK] = ord("Z")
+
+
+
 
 </string>
           </argument>
@@ -70,21 +78,21 @@ for(var i = 0; i &lt; INPUT.BLINK + 1; ++i)
             <kind>1</kind>
             <string>///refresh input
 
-keys[INPUT.LEFT]    = keyboard_check(vk_left) 
+keys[INPUT.LEFT]    = keyboard_check(keybinds[INPUT.LEFT]) 
                     ||gamepad_axis_value(0, gp_axislh) &lt; -.2
-keys[INPUT.RIGHT]   = keyboard_check(vk_right)
+keys[INPUT.RIGHT]   = keyboard_check(keybinds[INPUT.RIGHT])
                     ||gamepad_axis_value(0, gp_axislh) &gt; .2
-keys[INPUT.DOWN]    = keyboard_check(vk_down)
+keys[INPUT.DOWN]    = keyboard_check(keybinds[INPUT.DOWN])
                     ||gamepad_axis_value(0, gp_axislv) &gt; .2
-keys[INPUT.JUMP]    = ((keyboard_check(vk_up)
+keys[INPUT.JUMP]    = ((keyboard_check(keybinds[INPUT.JUMP])
                     ||gamepad_button_check(0, gp_face2))
                       //double jump capabilities
                       +
-                      (keyboard_check_pressed(vk_up)
+                      (keyboard_check_pressed(keybinds[INPUT.JUMP])
                       ||gamepad_button_check_pressed(0, gp_face2)
                       )
                       )
-keys[INPUT.BLINK]   = keyboard_check(ord("Z"))
+keys[INPUT.BLINK]   = keyboard_check(keybinds[INPUT.BLINK])
                       ||gamepad_button_check(0, gp_face1)
 
 </string>

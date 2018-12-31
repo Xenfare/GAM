@@ -138,6 +138,7 @@
       </scripts>
     </scripts>
     <script>scripts\scr_time_to_string.gml</script>
+    <script>scripts\scr_keycode_to_string.gml</script>
   </scripts>
   <objects name="objects">
     <object>objects\obj_controller</object>

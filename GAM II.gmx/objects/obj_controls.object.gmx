@@ -53,12 +53,24 @@ vertical_padding = 10;
             <string>y = 10
 
 draw_text(x,y,"CONTROLS")
-y += vertical_padding * 2
-
-draw_text(x,y,"MOVE: ARROW KEYS")
 y += vertical_padding
 
-draw_text(x,y,"ABILITY: Z")
+draw_text(x,y,"ENTER TO EDIT KEYBIND")
+y += vertical_padding
+
+draw_text(x,y,"LEFT: " + string_upper(scr_keycode_to_string(obj_input.keybinds[INPUT.LEFT])))
+y += vertical_padding
+
+draw_text(x,y,"RIGHT: " + string_upper(scr_keycode_to_string(obj_input.keybinds[INPUT.RIGHT])))
+y += vertical_padding
+
+draw_text(x,y,"JUMP: " + string_upper(scr_keycode_to_string(obj_input.keybinds[INPUT.JUMP])))
+y += vertical_padding
+
+draw_text(x,y,"CROUCH: " + string_upper(scr_keycode_to_string(obj_input.keybinds[INPUT.DOWN])))
+y += vertical_padding
+
+draw_text(x,y,"ABILITY: " + string_upper(scr_keycode_to_string(obj_input.keybinds[INPUT.BLINK])))
 y += vertical_padding
 
 draw_text(x,y,"ANY KEY TO RETURN")
