@@ -85,6 +85,13 @@ imageVibrate = 0;
     scr_record_boss_win("bozostatue")
 }
 instance_create(x, y, obj_bozocorpse);
+
+instance_destroy(obj_bozoshot);
+instance_destroy(obj_bozoshotimage);
+instance_destroy(obj_bozolaser);
+instance_destroy(obj_laserimage);
+instance_destroy(obj_bozowave);
+instance_destroy(obj_bozowaveimage);
 </string>
           </argument>
         </arguments>
