@@ -118,6 +118,23 @@
       <script>scripts\scr_record_boss_start.gml</script>
       <script>scripts\scr_record_boss_win.gml</script>
       <script>scripts\scr_record_misc_event.gml</script>
+      <scripts name="gameanalytics">
+        <script>scripts\util_ga_arrayToJsonString.gml</script>
+        <script>scripts\ga_configureAvailableCustomDimensions03.gml</script>
+        <script>scripts\ga_configureAvailableCustomDimensions02.gml</script>
+        <script>scripts\ga_configureAvailableResourceCurrencies.gml</script>
+        <script>scripts\ga_trace.gml</script>
+        <script>scripts\ga_configureAvailableResourceItemTypes.gml</script>
+        <script>scripts\ga_initialize.gml</script>
+        <script>scripts\ga_array.gml</script>
+        <script>scripts\ga_addBusinessEvent.gml</script>
+        <script>scripts\ga_addDesignEvent.gml</script>
+        <script>scripts\ga_addProgressionEvent.gml</script>
+        <script>scripts\ga_onResume.gml</script>
+        <script>scripts\ga_addResourceEvent.gml</script>
+        <script>scripts\ga_onStop.gml</script>
+        <script>scripts\ga_configureAvailableCustomDimensions01.gml</script>
+      </scripts>
     </scripts>
     <script>scripts\scr_time_to_string.gml</script>
   </scripts>
