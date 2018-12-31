@@ -129,8 +129,8 @@ else if obj_input.keys[INPUT.JUMP]
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>y = 10
-draw_text(x,y,"GAM")
+            <string>y = 20
+draw_text_transformed(x, y, "GAM", 2, 2, 0)
 y += vertical_padding * 2
 
 draw_text(x,y,"PLAY")
@@ -161,9 +161,9 @@ if mouse_check_button_pressed(mb_left) &amp;&amp;
 
 var bounce = sin(2 * pi * (current_time mod 1000) / 1000) * 5
 
-y = current_index * vertical_padding + 12 + vertical_padding * 2
-draw_sprite(spr_menucursor,0,x - (40 + bounce),y)
-draw_sprite_ext(spr_menucursor,0,x + (40 + bounce),y,-1,1,0,c_white,1)
+y = current_index * vertical_padding + 12 + vertical_padding * 3
+draw_sprite(spr_menucursor,0,x - (40),y)
+//draw_sprite_ext(spr_menucursor,0,x + (40),y,-1,1,0,c_white,1)
 
 </string>
           </argument>
