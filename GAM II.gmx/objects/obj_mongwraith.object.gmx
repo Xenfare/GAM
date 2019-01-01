@@ -32,6 +32,10 @@
     instance_create(72, 40, obj_spawnwall);
     instance_destroy();
 }
+else if (obj_controller.mongwraithTriggered == true)
+{
+    y = 20;
+}
 
 aggro = false;
 phase = 1;
@@ -199,7 +203,6 @@ if (invTimer &gt; 0)
 
 if (aggro == false &amp;&amp; obj_player.x &lt; 90)
 {
-    
     scr_record_boss_start("mongwraith")
     aggro = true;
     phase = 0;
@@ -211,21 +214,32 @@ if (aggro == true)
 {
     if (phase == 0)
     {
-        if (y &lt;= 20)
-        {
-            vibrate = 1;
-            image_index = 1;
-            obj_controller.screenshake = 1;
-            y += 0.1;
-            with instance_create(x, y - 14, obj_lavaparticle)
-            {direction += 180; alarm[0] = 180}
+        if (y &lt; 20)
+        {   
+            if (obj_controller.mongwraithTriggered == false)
+            {
+                vibrate = 1;
+                image_index = 1;
+                obj_controller.screenshake = 1;
+                y += 0.1;
+                with instance_create(x, y - 14, obj_lavaparticle)
+                {direction += 180; alarm[0] = 180}
+            }
+            else 
+            {
+                if (alarm[0] &lt; 0)
+                {
+                    alarm[0] = 41;
+                }
+            }
         }
         else
         {   
             if (alarm[0] &lt; 0) {alarm[0] = 100; image_index = 0; vibrate = 0;}
             
-            if (alarm[0] = 40)
+            if (alarm[0] == 40)
             {
+                obj_controller.mongwraithTriggered = true;
                 vibrate = 5;
                 obj_controller.screenshake = 2;
                 image_index = 1;

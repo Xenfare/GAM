@@ -68,7 +68,9 @@ aegisDefeated = false;
 hopmongerDefeated = false;
 platformState = 0;
 mongwraithDefeated = false;
+mongwraithTriggered = false;
 bozoScholarDefeated = false;
+bozoScholarTriggered = false;
 </string>
           </argument>
         </arguments>

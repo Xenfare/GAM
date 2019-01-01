@@ -35,9 +35,17 @@ yspd = 0;
 aggro = false;
 effectVar = 0;
 effectTrigger = 0;
+if (obj_controller.bozoScholarTriggered = false)
+{
+    effectMax = 300;
+}
+else
+{
+    effectMax = 60;
+}
 drawDistance = 0;
 
-if (obj_player.x &gt; 60)
+if (obj_player.x &gt; 60 or obj_controller.bozoScholarTriggered == true)
 {
     effectTrigger = 1;
 }
@@ -63,7 +71,7 @@ if (obj_player.x &gt; 60)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (effectTrigger = 1 &amp;&amp; aggro = false &amp;&amp; obj_player.x &lt; 30)
+            <string>if (effectTrigger = 1 &amp;&amp; aggro = false &amp;&amp; obj_player.x &lt; 40 &amp;&amp; obj_player.x &gt; 12)
 {
     scr_record_boss_start("bozostatue")
     image_index += 1;
@@ -105,7 +113,7 @@ if (aggro = true)
     {
         case 2:
         effectVar++;
-        if (effectVar &gt;= 300)
+        if (effectVar &gt;= effectMax)
         {
             effectTrigger++;
         }
@@ -130,6 +138,7 @@ if (aggro = true)
         if (effectVar &gt;= 40)
         {
             instance_destroy();
+            obj_controller.bozoScholarTriggered = true;
             instance_create(x, y, obj_bozoboss);
         }
     }
