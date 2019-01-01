@@ -228,6 +228,7 @@
       <object>objects\obj_bozodiamond</object>
     </objects>
     <object>objects\obj_demoend</object>
+    <object>objects\obj_transition</object>
     <object>objects\obj_desktop</object>
     <object>objects\obj_popup</object>
     <object>objects\obj_timeline</object>

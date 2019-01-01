@@ -79,12 +79,14 @@ draw_set_halign(fa_center)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if !delay &amp;&amp; (clicked || keyboard_check_pressed(vk_enter) || keyboard_check_pressed(vk_space) || obj_input.keys[INPUT.BLINK])
+            <string>if instance_exists(obj_transition) exit
+if !delay &amp;&amp; (clicked || keyboard_check_pressed(vk_enter) || keyboard_check_pressed(vk_space) || obj_input.keys[INPUT.BLINK])
 {
     switch(current_index)
     {
         case 0:
-            room_goto(START_ROOM)
+            var trans = instance_create(0,0,obj_transition);
+            trans.next_room = START_ROOM
         break;
         case 1:
             instance_create(0,0,obj_controls)
