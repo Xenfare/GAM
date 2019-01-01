@@ -128,15 +128,18 @@ bozoScholarTriggered = false;
           <argument>
             <kind>1</kind>
             <string>//Window Scale Code
-if (keyboard_check_pressed(ord('W')))
+if (keyboard_check_pressed(vk_f2))
 {
    global.scale += 1;
    window_set_size(120 * global.scale, 96 * global.scale);
 }
 
-if (keyboard_check_pressed(ord('S')))
+if (keyboard_check_pressed(vk_f3))
 {
-   global.scale -= 1;
+   if global.scale &gt; 1 
+    {
+        global.scale -= 1;
+    }
    window_set_size(120 * global.scale, 96 * global.scale);
 }
 
