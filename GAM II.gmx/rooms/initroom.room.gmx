@@ -32,14 +32,23 @@ global.game_start = 0
 global.progression_start = 0
 global.progression_current = ""
 
-//ga_setEnabledInfoLog(true);
+ga_setEnabledInfoLog(true);
 
-ga_configureBuild("0.0.1");
+ga_configureBuild("0.0.2");
 
-ga_initialize("921de0fabe54377e48e963776993080f", "519b83a97d9bc74d67b5fe6f5f7e8f9d8c45ba0d");
+show_debug_message(file_exists("analytics.ini"))
 
-
-room_goto_next();</code>
+if !file_exists("analytics.ini")
+    room_goto_next();
+else
+{
+        ini_open("analytics.ini")
+            var can_use = ini_read_real("analytics","allow",1)
+            ini_close()
+        if can_use
+            ga_initialize("921de0fabe54377e48e963776993080f", "519b83a97d9bc74d67b5fe6f5f7e8f9d8c45ba0d");
+        room_goto(room_menu)
+}</code>
   <enableViews>0</enableViews>
   <clearViewBackground>-1</clearViewBackground>
   <clearDisplayBuffer>-1</clearDisplayBuffer>
