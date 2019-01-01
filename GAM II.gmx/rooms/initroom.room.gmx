@@ -28,6 +28,7 @@ global.statistics = json_decode(
 }
 '
 )
+global.game_start = 0
 global.progression_start = 0
 global.progression_current = ""
 

@@ -8,7 +8,7 @@ var record = ds_map_create();
 record[?"event"] = "boss"
 record[?"room"] = rname
 record[?"source"] = argument0
-record[?"time"] = current_time
+record[?"time"] = current_time - global.game_start
 ds_list_add(global.statistics[?"timeline"],record)
 
 var time = (current_time - global.progression_start) div 1000
