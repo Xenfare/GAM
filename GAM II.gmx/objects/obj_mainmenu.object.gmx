@@ -29,9 +29,11 @@
 vertical_padding = 10;
 current_index = 0
 max_index = 2
-menu_move_cooldown = room_speed * .2
+menu_move_cooldown = room_speed * .15
 clicked = false
 delay = true
+draw_set_halign(fa_center)
+
 </string>
           </argument>
         </arguments>
@@ -77,12 +79,14 @@ delay = true
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if !delay &amp;&amp; (clicked || keyboard_check_pressed(vk_enter) || keyboard_check_pressed(vk_space) || obj_input.keys[INPUT.BLINK])
+            <string>if instance_exists(obj_transition) exit
+if !delay &amp;&amp; (clicked || keyboard_check_pressed(vk_enter) || keyboard_check_pressed(vk_space) || obj_input.keys[INPUT.BLINK])
 {
     switch(current_index)
     {
         case 0:
-            room_goto(START_ROOM)
+            var trans = instance_create(0,0,obj_transition);
+            trans.next_room = START_ROOM
         break;
         case 1:
             instance_create(0,0,obj_controls)
@@ -95,13 +99,13 @@ delay = true
 }
 delay = false
 if alarm[0] &gt; 0 exit
-if obj_input.keys[INPUT.DOWN]
+if keyboard_check(vk_down)
 {
     if ++current_index &gt; max_index
         current_index = 0
     alarm[0] = menu_move_cooldown
 }
-else if obj_input.keys[INPUT.JUMP]
+else if keyboard_check(vk_up)
 {
     if --current_index &lt; 0
         current_index = max_index

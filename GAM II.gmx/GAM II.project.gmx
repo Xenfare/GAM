@@ -138,6 +138,7 @@
       </scripts>
     </scripts>
     <script>scripts\scr_time_to_string.gml</script>
+    <script>scripts\scr_keycode_to_string.gml</script>
   </scripts>
   <objects name="objects">
     <object>objects\obj_controller</object>
@@ -227,6 +228,7 @@
       <object>objects\obj_bozodiamond</object>
     </objects>
     <object>objects\obj_demoend</object>
+    <object>objects\obj_transition</object>
     <object>objects\obj_desktop</object>
     <object>objects\obj_popup</object>
     <object>objects\obj_timeline</object>
@@ -235,7 +237,7 @@
   </objects>
   <rooms name="rooms">
     <room>rooms\initroom</room>
-    <room>rooms\roomMenu</room>
+    <room>rooms\room_menu</room>
     <rooms name="level B">
       <room>rooms\roomB0</room>
       <room>rooms\roomB1</room>
