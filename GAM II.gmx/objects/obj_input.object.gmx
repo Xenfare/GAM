@@ -45,12 +45,15 @@ for(var i = 0; i &lt; INPUT.BLINK + 1; ++i)
     keys[i] = 0
 }
 
-keybinds[INPUT.LEFT] = vk_left
-keybinds[INPUT.RIGHT] = vk_right
-keybinds[INPUT.DOWN] = vk_down
-keybinds[INPUT.JUMP] = vk_up
-keybinds[INPUT.BLINK] = ord("Z")
+ini_open("keybinds.ini") 
 
+keybinds[INPUT.LEFT] = ini_read_real("keys","left",vk_left)
+keybinds[INPUT.RIGHT] = ini_read_real("keys","right",vk_right)
+keybinds[INPUT.DOWN] = ini_read_real("keys","down",vk_down)
+keybinds[INPUT.JUMP] = ini_read_real("keys","jump",vk_up)
+keybinds[INPUT.BLINK] = ini_read_real("keys","blink",ord("Z"))
+
+ini_close()
 
 
 
