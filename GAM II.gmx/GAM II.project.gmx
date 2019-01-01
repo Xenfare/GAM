@@ -99,6 +99,8 @@
       <sprite>sprites\spr_bozocross</sprite>
       <sprite>sprites\spr_bozodiamond</sprite>
     </sprites>
+    <sprite>sprites\spr_spaceline</sprite>
+    <sprite>sprites\spr_obeliskshot</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bg_pink</background>
@@ -227,6 +229,7 @@
       <object>objects\obj_templesnow</object>
       <object>objects\obj_bozodiamond</object>
     </objects>
+    <object>objects\obj_spaceline</object>
     <object>objects\obj_demoend</object>
     <object>objects\obj_transition</object>
     <object>objects\obj_desktop</object>
@@ -234,6 +237,7 @@
     <object>objects\obj_timeline</object>
     <object>objects\obj_mainmenu</object>
     <object>objects\obj_controls</object>
+    <object>objects\obj_obeliskshot</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\initroom</room>

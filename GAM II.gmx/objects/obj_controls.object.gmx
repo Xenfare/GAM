@@ -93,8 +93,6 @@ keybinds[INPUT.BLINK] = string_upper(scr_keycode_to_string(obj_input.keybinds[IN
     if keyboard_check_pressed(vk_anykey)
     {
         obj_input.keybinds[index] = keyboard_lastkey
-        if keybinds[index] = "NO KEY"
-            --unbound
         keybinds[index] = string_upper(scr_keycode_to_string(keyboard_lastkey))
         editing_key = false
         ini_open("keybinds.ini") 
@@ -165,6 +163,8 @@ if keyboard_check_pressed(vk_enter) || keyboard_check_pressed(vk_space)
             instance_create(0,0,obj_mainmenu)
             break;
         default:
+            if keybinds[index] = "NO KEY"
+                --unbound
             keybinds[index] = "PRESS KEY"
             editing_key = true
     }
