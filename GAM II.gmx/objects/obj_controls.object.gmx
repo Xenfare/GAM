@@ -34,12 +34,14 @@ max_index = 6
 default_index = max_index - 1
 menu_move_cooldown = room_speed * .15
 editing_key = false
+unbound = 0
 
 keybinds[INPUT.LEFT] = string_upper(scr_keycode_to_string(obj_input.keybinds[INPUT.LEFT]))
 keybinds[INPUT.RIGHT] = string_upper(scr_keycode_to_string(obj_input.keybinds[INPUT.RIGHT]))
 keybinds[INPUT.DOWN] = string_upper(scr_keycode_to_string(obj_input.keybinds[INPUT.DOWN]))
 keybinds[INPUT.JUMP] = string_upper(scr_keycode_to_string(obj_input.keybinds[INPUT.JUMP]))
 keybinds[INPUT.BLINK] = string_upper(scr_keycode_to_string(obj_input.keybinds[INPUT.BLINK]))
+
 
 </string>
           </argument>
@@ -91,10 +93,11 @@ keybinds[INPUT.BLINK] = string_upper(scr_keycode_to_string(obj_input.keybinds[IN
     if keyboard_check_pressed(vk_anykey)
     {
         obj_input.keybinds[index] = keyboard_lastkey
+        if keybinds[index] = "NEEDS NEW KEY"
+            --unbound
         keybinds[index] = string_upper(scr_keycode_to_string(keyboard_lastkey))
         editing_key = false
         ini_open("keybinds.ini") 
-
         var key;
         switch(index)
         {
@@ -116,6 +119,15 @@ keybinds[INPUT.BLINK] = string_upper(scr_keycode_to_string(obj_input.keybinds[IN
         }
         ini_write_real("keys",key,keyboard_lastkey)
         ini_close()
+        for(var i = 0; i &lt;= INPUT.BLINK; ++i)
+        {
+            if index != i &amp;&amp; obj_input.keybinds[i] = keyboard_lastkey
+            {
+                keybinds[i] = "NO KEY"
+                ++unbound
+            }
+        }
+        keyboard_clear(keyboard_lastkey)
         exit
     }
     else
@@ -141,8 +153,10 @@ if keyboard_check_pressed(vk_enter) || keyboard_check_pressed(vk_space)
             keybinds[INPUT.DOWN] = string_upper(scr_keycode_to_string(obj_input.keybinds[INPUT.DOWN]))
             keybinds[INPUT.JUMP] = string_upper(scr_keycode_to_string(obj_input.keybinds[INPUT.JUMP]))
             keybinds[INPUT.BLINK] = string_upper(scr_keycode_to_string(obj_input.keybinds[INPUT.BLINK]))
+            unbound = 0
             break;
         case max_index:
+            if unbound break
             instance_destroy()
             instance_create(0,0,obj_mainmenu)
             break;

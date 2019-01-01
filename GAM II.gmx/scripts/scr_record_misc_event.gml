@@ -5,7 +5,7 @@ var record = ds_map_create();
 record[?"event"] = argument0
 record[?"room"] = rname
 record[?"source"] = argument1
-record[?"time"] = current_time
+record[?"time"] = current_time - global.game_start
 //ds_list_add(global.statistics[?"timeline"],record)
 
-ga_addDesignEvent(argument0 + ":" + argument1,current_time div 1000)
+ga_addDesignEvent(argument0 + ":" + argument1,(current_time - global.game_start) div 1000)

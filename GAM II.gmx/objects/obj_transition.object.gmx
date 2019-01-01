@@ -55,6 +55,8 @@ next_room = room_menu
     
     if (image_xscale &gt; 70)
     {
+        if room = room_menu &amp;&amp; next_room = START_ROOM
+                global.game_start = current_time
         room_goto(next_room);
         instance_destroy()
     }

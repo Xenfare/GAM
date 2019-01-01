@@ -28,7 +28,7 @@ var record = ds_map_create();
 record[?"event"] = "death"
 record[?"room"] = rname
 record[?"source"] = argument0
-record[?"time"] = current_time
+record[?"time"] = current_time - global.game_start
 //ds_list_add(global.statistics[?"timeline"],record)
 
 ga_addDesignEvent("death:" + rname + ":" + argument0)
