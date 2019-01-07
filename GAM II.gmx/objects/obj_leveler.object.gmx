@@ -86,8 +86,8 @@ if (phase = 1)
 
     if (image_xscale &gt; 100)
     {
-        placex = obj_player.x;
-        placey = obj_player.y;
+        placex = obj_controller.playerx;
+        placey = obj_controller.playery;
         room_goto(room_levelup);
         instance_deactivate_object(obj_player);
         phase++;
