@@ -22,7 +22,7 @@ else
     if droom = ""
         dmap[?"deadliest room"] = rname
 }
-
+/*
 rname = room_get_name(room)
 var record = ds_map_create();
 record[?"event"] = "death"

@@ -3,9 +3,7 @@
   <Configs name="configs">
     <Config>Configs\Default</Config>
   </Configs>
-  <NewExtensions>
-    <extension index="0">extensions\GameAnalyticsExt</extension>
-  </NewExtensions>
+  <NewExtensions/>
   <sounds name="sound"/>
   <sprites name="sprites">
     <sprites name="general">
@@ -121,23 +119,6 @@
       <script>scripts\scr_record_boss_start.gml</script>
       <script>scripts\scr_record_boss_win.gml</script>
       <script>scripts\scr_record_misc_event.gml</script>
-      <scripts name="gameanalytics">
-        <script>scripts\util_ga_arrayToJsonString.gml</script>
-        <script>scripts\ga_configureAvailableCustomDimensions03.gml</script>
-        <script>scripts\ga_configureAvailableCustomDimensions02.gml</script>
-        <script>scripts\ga_configureAvailableResourceCurrencies.gml</script>
-        <script>scripts\ga_trace.gml</script>
-        <script>scripts\ga_configureAvailableResourceItemTypes.gml</script>
-        <script>scripts\ga_initialize.gml</script>
-        <script>scripts\ga_array.gml</script>
-        <script>scripts\ga_addBusinessEvent.gml</script>
-        <script>scripts\ga_addDesignEvent.gml</script>
-        <script>scripts\ga_addProgressionEvent.gml</script>
-        <script>scripts\ga_onResume.gml</script>
-        <script>scripts\ga_addResourceEvent.gml</script>
-        <script>scripts\ga_onStop.gml</script>
-        <script>scripts\ga_configureAvailableCustomDimensions01.gml</script>
-      </scripts>
     </scripts>
     <script>scripts\scr_time_to_string.gml</script>
     <script>scripts\scr_keycode_to_string.gml</script>
@@ -236,14 +217,12 @@
     <object>objects\obj_popup</object>
     <object>objects\obj_timeline</object>
     <object>objects\obj_mainmenu</object>
-    <object>objects\obj_allowanalytics</object>
     <object>objects\obj_controls</object>
     <object>objects\obj_fadein</object>
     <object>objects\obj_obeliskshot</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\initroom</room>
-    <room>rooms\allowanalytics</room>
     <room>rooms\room_menu</room>
     <rooms name="level B">
       <room>rooms\roomB0</room>
