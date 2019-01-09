@@ -22,7 +22,8 @@ global.statistics = json_decode(
     "death":
     {
         "total": 0,
-        "deadliest room": ""
+        "deadliest room": "",
+        "deadliest boss": ""
     },
     "timeline": [],
 }

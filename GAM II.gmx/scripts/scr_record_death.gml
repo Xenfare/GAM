@@ -1,28 +1,48 @@
 ///scr_record_death(killer name)
+/*
+
+var dmap = global.statistics[?"death"];
+++dmap[?"total"]
+//show_debug_message("recording death by " + argument0)
+
 if global.progression_current != ""
 {
+    var dboss = dmap[?"deadliest boss"]
+    if ds_map_exists(dmap,global.progression_current )
+    {
+        var deaths = dmap[?global.progression_current ] + 1;
+        dmap[?global.progression_current ] = deaths
+        if deaths > dmap[?dboss]
+            dmap[?"deadliest boss"] = global.progression_current 
+    }
+    else
+    {
+        dmap[?global.progression_current ] = 1
+        if dboss = ""
+            dmap[?"deadliest boss"] = global.progression_current 
+    }
     scr_record_boss_loss(global.progression_current)
     global.progression_current = ""
 }
-show_debug_message("recording death by " + argument0)
-var dmap = global.statistics[?"death"];
-++dmap[?"total"]
-var rname = obj_controller.roomString
-var droom = dmap[?"deadliest room"]
-if ds_map_exists(dmap,rname)
-{
-    var deaths = dmap[?rname] + 1;
-    dmap[?rname] = deaths
-    if deaths > dmap[?droom]
-        dmap[?"deadliest room"] = rname
-}
 else
 {
-    dmap[?rname] = 1
-    if droom = ""
-        dmap[?"deadliest room"] = rname
+    var rname = obj_controller.roomString
+    var droom = dmap[?"deadliest room"]
+    if ds_map_exists(dmap,rname)
+    {
+        var deaths = dmap[?rname] + 1;
+        dmap[?rname] = deaths
+        if deaths > dmap[?droom]
+            dmap[?"deadliest room"] = rname
+    }
+    else
+    {
+        dmap[?rname] = 1
+        if droom = ""
+            dmap[?"deadliest room"] = rname
+    }
 }
-/*
+
 rname = room_get_name(room)
 var record = ds_map_create();
 record[?"event"] = "death"
