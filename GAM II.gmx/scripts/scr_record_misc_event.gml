@@ -1,5 +1,5 @@
 ///scr_record_misc_event(category, name)
-
+/*
 var rname = room_get_name(room)
 var record = ds_map_create();
 record[?"event"] = argument0

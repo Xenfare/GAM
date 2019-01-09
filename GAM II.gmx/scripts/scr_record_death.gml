@@ -1,4 +1,5 @@
 ///scr_record_death(killer name)
+/*
 
 var dmap = global.statistics[?"death"];
 ++dmap[?"total"]
@@ -41,6 +42,7 @@ else
             dmap[?"deadliest room"] = rname
     }
 }
+
 rname = room_get_name(room)
 var record = ds_map_create();
 record[?"event"] = "death"
