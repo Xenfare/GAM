@@ -11,12 +11,18 @@ if minutes > 0
     if minutes < 10
         str = str + "0"
     str = str + string(minutes) + ":" 
+}else if hours
+{
+    str = str + "00:"
 }
 if seconds > 0
 {
     if seconds < 10
         str = str + "0"
     str = str + string(seconds)
+}else if hours || minutes
+{
+    str = str + "00"
 }
 return str
 
