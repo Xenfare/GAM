@@ -27,7 +27,6 @@
             <kind>1</kind>
             <string>with other 
 {
-    scr_record_death("lava")
     instance_destroy()
 }
 </string>

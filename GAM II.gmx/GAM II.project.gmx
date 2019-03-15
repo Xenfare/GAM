@@ -224,73 +224,75 @@
   <rooms name="rooms">
     <room>rooms\initroom</room>
     <room>rooms\room_menu</room>
-    <rooms name="level B">
-      <room>rooms\roomB0</room>
-      <room>rooms\roomB1</room>
-    </rooms>
-    <rooms name="level C">
-      <room>rooms\roomC0</room>
-      <room>rooms\roomC1</room>
-      <room>rooms\roomC2</room>
-      <room>rooms\roomC3</room>
-      <room>rooms\roomC4</room>
-      <room>rooms\roomC5</room>
-    </rooms>
-    <rooms name="level D">
-      <room>rooms\roomD0</room>
-      <room>rooms\roomD1</room>
-      <room>rooms\roomD2</room>
-      <room>rooms\roomD3</room>
-      <room>rooms\roomD4</room>
-      <room>rooms\roomD5</room>
-      <room>rooms\roomD6</room>
-    </rooms>
-    <rooms name="level E">
-      <room>rooms\roomE0</room>
-      <room>rooms\roomE1</room>
-      <room>rooms\roomE2</room>
-      <room>rooms\roomE3</room>
-      <room>rooms\roomE4</room>
-      <room>rooms\roomE5</room>
-    </rooms>
-    <rooms name="level F">
-      <room>rooms\roomF0</room>
-      <room>rooms\roomF1</room>
-      <room>rooms\roomF2</room>
-      <room>rooms\roomF3</room>
-      <room>rooms\roomF4</room>
-      <room>rooms\roomF5</room>
-      <room>rooms\roomF6</room>
-    </rooms>
-    <rooms name="level G">
-      <room>rooms\roomG0</room>
-      <room>rooms\roomG1</room>
-      <room>rooms\roomG2</room>
-      <room>rooms\roomG3</room>
-      <room>rooms\roomG4</room>
-      <room>rooms\roomG5</room>
-      <room>rooms\roomG6</room>
-    </rooms>
-    <rooms name="levelH">
-      <room>rooms\roomH0</room>
-      <room>rooms\roomH2</room>
-      <room>rooms\roomH3</room>
-      <room>rooms\roomH4</room>
-      <room>rooms\roomH5</room>
-      <room>rooms\roomH6</room>
-    </rooms>
-    <rooms name="levelI">
-      <room>rooms\roomI0</room>
-      <room>rooms\roomI1</room>
-      <room>rooms\roomI2</room>
-      <room>rooms\roomI3</room>
-      <room>rooms\roomI4</room>
-    </rooms>
-    <rooms name="levelJ">
-      <room>rooms\roomJ1</room>
-      <room>rooms\roomJ2</room>
-      <room>rooms\roomJ3</room>
-      <room>rooms\roomJ4</room>
+    <rooms name="OLD MAP">
+      <rooms name="level B">
+        <room>rooms\roomB0</room>
+        <room>rooms\roomB1</room>
+      </rooms>
+      <rooms name="level C">
+        <room>rooms\roomC0</room>
+        <room>rooms\roomC1</room>
+        <room>rooms\roomC2</room>
+        <room>rooms\roomC3</room>
+        <room>rooms\roomC4</room>
+        <room>rooms\roomC5</room>
+      </rooms>
+      <rooms name="level D">
+        <room>rooms\roomD0</room>
+        <room>rooms\roomD1</room>
+        <room>rooms\roomD2</room>
+        <room>rooms\roomD3</room>
+        <room>rooms\roomD4</room>
+        <room>rooms\roomD5</room>
+        <room>rooms\roomD6</room>
+      </rooms>
+      <rooms name="level E">
+        <room>rooms\roomE0</room>
+        <room>rooms\roomE1</room>
+        <room>rooms\roomE2</room>
+        <room>rooms\roomE3</room>
+        <room>rooms\roomE4</room>
+        <room>rooms\roomE5</room>
+      </rooms>
+      <rooms name="level F">
+        <room>rooms\roomF0</room>
+        <room>rooms\roomF1</room>
+        <room>rooms\roomF2</room>
+        <room>rooms\roomF3</room>
+        <room>rooms\roomF4</room>
+        <room>rooms\roomF5</room>
+        <room>rooms\roomF6</room>
+      </rooms>
+      <rooms name="level G">
+        <room>rooms\roomG0</room>
+        <room>rooms\roomG1</room>
+        <room>rooms\roomG2</room>
+        <room>rooms\roomG3</room>
+        <room>rooms\roomG4</room>
+        <room>rooms\roomG5</room>
+        <room>rooms\roomG6</room>
+      </rooms>
+      <rooms name="levelH">
+        <room>rooms\roomH0</room>
+        <room>rooms\roomH2</room>
+        <room>rooms\roomH3</room>
+        <room>rooms\roomH4</room>
+        <room>rooms\roomH5</room>
+        <room>rooms\roomH6</room>
+      </rooms>
+      <rooms name="levelI">
+        <room>rooms\roomI0</room>
+        <room>rooms\roomI1</room>
+        <room>rooms\roomI2</room>
+        <room>rooms\roomI3</room>
+        <room>rooms\roomI4</room>
+      </rooms>
+      <rooms name="levelJ">
+        <room>rooms\roomJ1</room>
+        <room>rooms\roomJ2</room>
+        <room>rooms\roomJ3</room>
+        <room>rooms\roomJ4</room>
+      </rooms>
     </rooms>
     <room>rooms\room_levelup</room>
     <room>rooms\room_demoend</room>

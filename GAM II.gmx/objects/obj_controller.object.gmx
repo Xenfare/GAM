@@ -48,9 +48,9 @@ window_set_size(120 * global.scale, 96 * global.scale);
 //Player Abilities
 
 playerMaxHP = 2;
-blink = false;
-doubleJump = false;
-blinkStrike = false;
+blink = true;
+doubleJump = true;
+blinkStrike = true;
 
 global.enlightenmentPot = 0;
 global.enlightenmentXp = 0;
