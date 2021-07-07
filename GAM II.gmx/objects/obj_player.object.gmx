@@ -38,8 +38,9 @@ maxBlinkDistance = 30;
 terminalVelocity = 11;
 
 blinkTimer = 30;
-jumpSpeed = 12;
-gravStrength = 14;
+jumpSpeed = 4;
+moveSpeed = 2
+gravStrength = .5;
 jumps = 0;
 directionFacing = 1;
 knockback = 0;
@@ -242,12 +243,12 @@ if (obj_input.keys[INPUT.DOWN] &amp;&amp; place_meeting(x, y+1, obj_wall))
 if (obj_input.keys[INPUT.RIGHT]) 
 {
     image_index = 0;
-    xspd = 4;
+    xspd = moveSpeed;
 }
 else if (obj_input.keys[INPUT.LEFT]) 
 {
     image_index = 1;
-    xspd = -4;
+    xspd = -moveSpeed;
 }
 else
 {
@@ -276,7 +277,7 @@ if (place_free(x, y+1))
 {
     if (yspd &lt; terminalVelocity)
     {
-        yspd += 1;
+        yspd += gravStrength;
     }
 }
 else
@@ -302,26 +303,19 @@ if (knockback != 0)
 
 if (xspd + knockback != 0)
 {
-    for(i = 0; i != xspd + knockback; i += sign(xspd + knockback))
-    {
-        if place_free(round(x + (i / 10)), round(y))
-        {
-            x += (i / 10);
-        }
-        else
-        break;
-    }
+    var totalxspd = xspd + knockback;
+    for(i = 1; i &lt;= 10; ++i)
+        if !place_free(round(x + (i / 10) * totalxspd), round(y))
+            break;
+    x += --i / 10 * totalxspd
 }
 
 if (yspd != 0)
 {
-    for(i = 0; i != yspd; i += sign(yspd))
-    {
-        if place_free(round(x), round(y + (i / gravStrength)))
-        {
-            y += i / gravStrength;
-        }
-    }
+    for(i = 1; i &lt;= 10; ++i)
+        if !place_free(round(x), round(y + (i / 10) * yspd))
+            break
+     y += --i / 10 * yspd;
 }
 
 //Damage Code
